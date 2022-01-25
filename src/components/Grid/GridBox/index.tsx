@@ -24,12 +24,23 @@ const bgColour = () => {
 	return `#${randomColour}`;
 };
 
+// TODO: abstract
+
+const debounce = (callback, delay) => {
+	let timeout;
+	return function () {
+		clearTimeout(timeout);
+		timeout = setTimeout(callback, delay);
+	};
+};
+
 const GridBox = ({ boxSize }: IProps) => {
 	const classes = useStyles();
 
 	return (
 		<div className={classes.container}>
-			{[...Array(10000)].map((array) => {
+			{
+			[...Array(10000)].map((array) => {
 				return (
 					<div
 						style={{
@@ -39,7 +50,8 @@ const GridBox = ({ boxSize }: IProps) => {
 						}}
 					/>
 				);
-			})}
+			})
+			}
 			<span className={classes.deadPixels} id={'dead-pixels'} />
 		</div>
 	);
