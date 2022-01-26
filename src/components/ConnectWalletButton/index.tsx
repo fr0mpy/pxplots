@@ -8,7 +8,9 @@ const useStyles = createUseStyles({
         height: '48px',
         width: '180px',
         border: 'solid 4px black',
-        borderRadius: '5px',
+        // border: 'solid 4px white',
+
+        borderRadius: '2px',
         fontFamily: 'Roboto Slab, serif',
         fontSize: '18px',
         cursor: 'pointer',

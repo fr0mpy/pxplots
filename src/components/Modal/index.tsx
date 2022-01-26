@@ -50,6 +50,7 @@ const useStyles = createUseStyles({
 	button: {
 		backgroundColor: 'cyan',
 		border: 'solid 4px black',
+		outline: 'solid 4px white',
 		borderRadius: '5px',
 		cursor: 'pointer',
 		fontFamily: 'Roboto Slab, serif',
@@ -69,17 +70,21 @@ const useStyles = createUseStyles({
 		opacity: 0.7,
 		cursor: 'pointer'
 	},
+	mint_button: {
+		border: 'solid 4px white',
+		outline: 'solid 4px black'
+	},
 	heading_button_active: {
 		opacity: 1
 	},
 	text: {
-		margin: '14px 0'
+		margin: '14px'
 	},
 	mint_quantity_button: {
 		margin: '16px',
 		minHeight: '42px',
 		width: '42px',
-		backgroundColor: 'white'
+		backgroundColor: '#b8b8b8'
 	},
 	mint_buttons_container: {
 		display: 'flex',
@@ -105,6 +110,8 @@ const Modal = ({ open, closeModal }: IProps) => {
 	const [section, setSection] = React.useState<number>(0);
 	const [walletConnected, setWalletConnected] = React.useState<boolean>(false);
 	const [mintWindowOpen, setMintWindowOpen] = React.useState<boolean>(false);
+	const [numberOfMints, setNumberOfMints] = React.useState<number>(0);
+
 	const classes = useStyles();
 
 	const connectWallet = () => {
@@ -125,6 +132,13 @@ const Modal = ({ open, closeModal }: IProps) => {
 	const about = () => {
 		return (
 			<>
+				<button
+					className={`${classes.button} ${walletConnected ? classes.mint_button : ''}`}
+					onClick={walletConnected ?
+						() => setMintWindowOpen(true) : () => connectWallet()
+					}>
+					{walletConnected ? 'Go To Mint' : 'Connect Wallet'}
+				</button>
 				<p className={classes.text}>
 					pxplots are 10,000, tiny, hyper-realistic plots of land, living on the Ethereum blockchain.
 				</p>
@@ -141,13 +155,7 @@ const Modal = ({ open, closeModal }: IProps) => {
 				<p className={classes.text}>
 					Simple. Sm0l. Something.
 				</p>
-				<button
-					className={classes.button}
-					onClick={walletConnected ?
-						() => setMintWindowOpen(true) : () => connectWallet()
-					}>
-					{walletConnected ? 'Go To Mint' : 'Connect Wallet'}
-				</button>
+
 
 
 			</>
@@ -322,13 +330,22 @@ const Modal = ({ open, closeModal }: IProps) => {
 	const renderMintWindow = () => {
 		return (
 			<>
-				{/* <h1>Mint</h1> */}
-				<p>Select the number of pxplots you would like to mint</p>
+				<p className={classes.text}>Select the number of pxplots you would like to mint</p>
 				<div className={classes.mint_buttons_container}>
-
-					<button className={`${classes.button} ${classes.mint_quantity_button}`}>1</button>
-					<button className={`${classes.button} ${classes.mint_quantity_button}`}>3</button>
-					<button className={`${classes.button} ${classes.mint_quantity_button}`}>5</button>
+					<button className={`${classes.button} ${classes.mint_quantity_button}`} onClick={() => setNumberOfMints(1)}>1</button>
+					<button className={`${classes.button} ${classes.mint_quantity_button}`} onClick={() => setNumberOfMints(3)}>3</button>
+					<button className={`${classes.button} ${classes.mint_quantity_button}`} onClick={() => setNumberOfMints(5)}>5</button>
+				</div>
+				<p className={classes.text} style={{ marginBottom: '2px', fontSize: '14px' }}>The first 2,000 mints are free.</p>
+				<p className={classes.text} style={{ marginTop: '2px', fontSize: '14px' }}>After that 1 plot = 0.02eth</p>
+				<div>
+					<button
+						className={classes.button}
+						onClick={() => console.log(`minting ${numberOfMints} plots`)}
+						style={{ marginTop: '24px', backgroundColor: 'yellow' }}
+					>
+						Mint your plot(s)!
+					</button>
 				</div>
 			</>
 		)

@@ -24,7 +24,8 @@ const useStyles = createUseStyles({
 	button: {
 		height: '48px',
 		width: '180px',
-		border: 'solid 4px white',
+		border: 'solid 4px black',
+		outline: 'solid 4px white',
 		borderRadius: '5px',
 		fontFamily: 'Roboto Slab, serif',
 		fontSize: '18px',
