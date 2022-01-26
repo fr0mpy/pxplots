@@ -5,10 +5,11 @@ import GridBox from '../GridBox/index.tsx';
 const useStyles = createUseStyles({
 	container: {
 		overflow: 'hidden',
-		height: '80vh',
+		height: '90vh',
 		maxWidth: '100vw',
 		lineHeight: 0,
-		verticalAlign: 'top'
+		// flex: 4
+		// verticalAlign: 'top'
 	}
 });
 
@@ -55,7 +56,6 @@ const GridContainer = () => {
 		const tableRatio = rectWidth / rectHeight;
 		let columns = Math.sqrt(10000 * tableRatio);
 		let rows = columns / tableRatio;
-		console.log('greatest divisor', rectHeight, rectWidth);
 
 		columns = Math.ceil(columns); // the number of columns of squares we will have
 		rows = Math.ceil(rows); // the number of rows of squares we will have

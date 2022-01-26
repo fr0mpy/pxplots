@@ -12,13 +12,18 @@ const useStyles = createUseStyles({
 });
 
 const Wrapper = () => {
+	const [modalOpen, setModalOpen] = React.useState<boolean>(false);
 	const classes = useStyles();
+
+	const openModal = () => setModalOpen(true);
+
+	const closeModal = () => setModalOpen(false);
 
 	return (
 		<div className={classes.container}>
-			<Modal />
+			<Modal open={modalOpen} closeModal={closeModal} />
 			<GridContainer />
-			<Menu />
+			<Menu openModal={openModal} />
 		</div>
 	);
 };
