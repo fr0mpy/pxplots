@@ -19,41 +19,23 @@ const useStyles = createUseStyles({
 	}
 });
 
-const bgColour = () => {
-	const randomColour = Math.floor(Math.random() * 16777215).toString(16);
-	return `#${randomColour}`;
-};
+interface IProps {
+	bozSize: number;
+	bgColour: string;
+}
 
-// TODO: abstract
-
-const debounce = (callback, delay) => {
-	let timeout;
-	return function () {
-		clearTimeout(timeout);
-		timeout = setTimeout(callback, delay);
-	};
-};
-
-const GridBox = ({ boxSize }: IProps) => {
+const GridBox = ({ boxSize, bgColour }: IProps) => {
 	const classes = useStyles();
+	const [active, setActive] = React.useState<boolean>(false);
 
 	return (
-		<div className={classes.container}>
-			{
-			[...Array(10000)].map((array) => {
-				return (
-					<div
-						style={{
-							backgroundColor: bgColour(),
-							height: boxSize,
-							width: boxSize
-						}}
-					/>
-				);
-			})
-			}
-			<span className={classes.deadPixels} id={'dead-pixels'} />
-		</div>
+		<div
+			style={{
+				backgroundColor: active ? 'white' : bgColour,
+				height: '20px',
+				width: '20px'
+			}}
+		/>
 	);
 };
 
