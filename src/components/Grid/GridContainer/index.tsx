@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { createUseStyles } from 'react-jss';
-import ExampleMarketPages from '../../ExampleMarketPages/index.tsx';
-import GridBoxes from '../GridBoxes/index.tsx';
+import ExampleMarketPages from '../../ExampleMarketPages/';
+import GridBoxes from '../GridBoxes/';
 
 const useStyles = createUseStyles({
 	container: {

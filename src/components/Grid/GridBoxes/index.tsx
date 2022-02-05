@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { createUseStyles } from 'react-jss';
-import { usePrevious } from '../../../hooks/index.tsx';
-import GridBox from '../GridBox/index.tsx'
-
-interface IProps {
-	boxSize: number;
-}
+import GridBox from '../GridBox/'
 
 const useStyles = createUseStyles({
 	container: {
@@ -26,16 +21,8 @@ const getBgColour = () => {
 	return `#${randomColour}`;
 };
 
-const GridBoxes = ({ boxSize }: IProps) => {
+const GridBoxes = () => {
 	const classes = useStyles();
-	const [gridBoxes, setGridBoxes] = React.useState([])
-
-	const prevBoxSize = usePrevious(boxSize);
-
-	// React.useEffect(() => {
-	// 		createGridBoxes()
-	// 	}
-	// })
 
 	const createGridBoxes = () => {
 		const gridBoxes = [...Array(5000)].map((array) => {

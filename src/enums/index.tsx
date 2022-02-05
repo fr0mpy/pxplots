@@ -1,4 +1,4 @@
-enum Sections {
+export enum Sections {
     About = 0,
     Team = 1,
     Roadmap = 2,

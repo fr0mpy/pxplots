@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 
 interface IProps {
-	boxSize: number;
+	bgColour: string;
 }
 
 const useStyles = createUseStyles({
@@ -20,11 +20,10 @@ const useStyles = createUseStyles({
 });
 
 interface IProps {
-	bozSize: number;
 	bgColour: string;
 }
 
-const GridBox = ({ boxSize, bgColour }: IProps) => {
+const GridBox = ({ bgColour }: IProps) => {
 	const classes = useStyles();
 	const [active, setActive] = React.useState<boolean>(false);
 

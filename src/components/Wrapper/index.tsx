@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { createUseStyles } from 'react-jss';
-import GridContainer from '../Grid/GridContainer/index.tsx';
-import Navigation from '../Navigation/index.tsx';
-import Menu from '../Menu/index.tsx';
-import Modal from '../Modal/index.tsx';
+import GridContainer from '../Grid/GridContainer/';
+import Navigation from '../Navigation/';
+import Menu from '../Menu/';
+import Modal from '../Modal/';
 
 const useStyles = createUseStyles({
 	container: {

@@ -77,21 +77,21 @@ const useStyles = createUseStyles({
 			padding: '4px'
 		}
 	},
-	// menu_title: {
-	// 	marginTop: '0',
-	// 	fontSize: '18px',
-	// 	'@media screen and (max-width: 600px)': {
-	// 		margin: '0 0 4px 0',
-	// 		fontSize: '16px',
-	// 	}
-	// },
-	// menu_caption: {
-	// 	fontSize: '16px',
-	// 	'@media screen and (max-width: 600px)': {
-	// 		margin: '0',
-	// 		fontSize: '12px'
-	// 	}
-	// }
+	menu_title: {
+		marginTop: '0',
+		fontSize: '18px',
+		'@media screen and (max-width: 600px)': {
+			margin: '0 0 4px 0',
+			fontSize: '16px',
+		}
+	},
+	menu_caption: {
+		fontSize: '16px',
+		'@media screen and (max-width: 600px)': {
+			margin: '0',
+			fontSize: '12px'
+		}
+	}
 });
 
 interface IProps {

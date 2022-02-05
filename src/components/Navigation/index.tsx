@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { createUseStyles } from 'react-jss';
-import About from './About/index.tsx';
-import Roadmap from './Roadmap/index.tsx';
-import Team from './Team/index.tsx';
-import FAQ from './FAQ/index.tsx';
-import SocialLinks from '../SocialLinks/index.tsx';
+import About from './About/';
+import Roadmap from './Roadmap/';
+import Team from './Team/';
+import FAQ from './FAQ/';
+import SocialLinks from '../SocialLinks/';
 
 const useStyles = createUseStyles({
     root: {
@@ -129,7 +129,7 @@ const Navigation = () => {
     const sectionRef = React.useRef<HTMLDivElement>(null);
 
     React.useEffect(() => {
-        if (sectionRef) {
+        if (sectionRef.current) {
             sectionRef.current.scrollTop = 0;
         }
     }, [section])
