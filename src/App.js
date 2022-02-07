@@ -1,9 +1,14 @@
 import Wrapper from './components/Wrapper/index.tsx';
+import { Provider } from 'react-redux';
+import store from '../src/Redux/store';
+
 function App() {
 	return (
-		<div className="App" style={{ height: '100vh', width: '100vw' }}>
-			<Wrapper />
-		</div>
+		<Provider store={store}>
+			<div className="App" style={{ height: '100vh', width: '100vw' }}>
+				<Wrapper />
+			</div>
+		</Provider>
 	);
 }
 

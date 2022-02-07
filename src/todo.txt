@@ -1,0 +1,9 @@
+UI
+
+Add "connected as ...783heu3h32q0x" after wallet connected. Fade it in.
+fix mint modal functionality
+Check for better font
+Modal overlay fade in transition.
+On hover example site wobble
+mint window
+Add pxplot nft exmaple & small write up about it 

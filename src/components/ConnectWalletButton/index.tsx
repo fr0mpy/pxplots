@@ -20,7 +20,7 @@ const useStyles = createUseStyles({
 });
 
 interface IProps {
-    setWallet()
+    setWallet(): any
 }
 
 const ConnectWalletButton = ({ setWallet }: IProps) => {
