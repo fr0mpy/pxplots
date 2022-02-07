@@ -1,12 +1,9 @@
 UI
-onHover pxel has a speech bubble around it, with larger pixel and the colour. Has who the owner is. Also need to
-find out if we can have the owners link / message too
-on menu item click menu needs to startf rom the top
 
-
-
-Add the nicer emojis
+Add "connected as ...783heu3h32q0x" after wallet connected. Fade it in.
+fix mint modal functionality
 Check for better font
-buttons into one component. Sort styling for on hover, on action and on activated. Box shadow
 Modal overlay fade in transition.
-
+On hover example site wobble
+mint window
+Add pxplot nft exmaple & small write up about it 

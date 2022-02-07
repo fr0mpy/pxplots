@@ -2,8 +2,11 @@ import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 import GridContainer from '../Grid/GridContainer/';
 import Navigation from '../Navigation/';
-import Menu from '../Menu/';
+// import Menu from '../Menu/';
 import Modal from '../Modal/';
+import { getItemFromLocalStorage } from '../../helpers/storage';
+import { useDispatch } from 'react-redux';
+import { setTheme } from '../../Redux/slices/themeSlice';
 
 const useStyles = createUseStyles({
 	container: {
@@ -15,6 +18,15 @@ const useStyles = createUseStyles({
 const Wrapper = () => {
 	const [modalOpen, setModalOpen] = React.useState<boolean>(false);
 	const classes = useStyles();
+	const dispatch = useDispatch();
+
+	React.useEffect(() => {
+		const storedTheme = getItemFromLocalStorage('theme');
+
+		if (storedTheme) {
+			dispatch(setTheme(storedTheme))
+		}
+	}, [])
 
 	const openModal = () => setModalOpen(true);
 

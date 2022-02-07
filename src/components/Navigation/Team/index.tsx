@@ -37,7 +37,7 @@ const Team = () => {
             </p>
             <p className={classes.text}>
                 It's such a powerful idea and the inspiration behind pxplots -
-                To support artists starting out, in growing their personal brand and their fan base <span style={{ fontSize: '20px' }}>🌱</span>
+                To support artists starting out, in growing their personal brand and their fan base.
             </p>
             <p className={classes.text}>
                 Like so many of you, I'm ridiculously excited for what the future holds for web3 and I truly hope pxplots can become an integral part of it.

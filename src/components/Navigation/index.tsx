@@ -5,6 +5,11 @@ import Roadmap from './Roadmap/';
 import Team from './Team/';
 import FAQ from './FAQ/';
 import SocialLinks from '../SocialLinks/';
+import { IThemeState, setTheme } from '../../Redux/slices/themeSlice';
+import { useSelector, useDispatch } from 'react-redux'
+import ThemeToggle from '../ThemeToggle';
+import { Theme } from '../../enums/themes';
+import { setModalOpen } from '../../Redux/slices/mintSlice';
 
 const useStyles = createUseStyles({
     root: {
@@ -13,16 +18,25 @@ const useStyles = createUseStyles({
         borderTopRightRadius: '8px',
         borderBottomRightRadius: '8px',
         boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px',
+        boxSizing: 'border-box',
         fontFamily: 'Roboto Slab, serif',
         height: '100%',
         padding: '16px',
-        boxSizing: 'border-box',
+        transition: 'background-color .4s linear',
         width: '550px',
         zIndex: 1
     },
+    root_night_mode: {
+        backgroundColor: 'black',
+        color: 'white',
+        transition: 'background-color .4s linear'
+    },
     button_container: {
+        alignItems: 'center',
         display: 'flex',
-        justifyContent: 'flex-end'
+        height: 'fit-content',
+        marginBottom: '30px',
+        justifyContent: 'space-between'
     },
     button: {
         backgroundColor: '#5141f1',
@@ -32,32 +46,39 @@ const useStyles = createUseStyles({
         cursor: 'pointer',
         fontFamily: 'Roboto Slab, serif',
         fontSize: '18px',
-        outline: 'solid 4px white',
-        marginBottom: '30px',
         minHeight: '48px',
+        outline: 'solid 4px white',
+        transition: 'border .4s linear, outline .4s linear, background-color .2s linear',
         width: '180px',
         '&:hover': {
             backgroundColor: '#fefd78',
-            color: 'black'
+            color: 'black',
+            transition: 'background-color .2s linear',
         },
         '&:active': {
             backgroundColor: '#fffd00',
-            boxShadow: 'inset 0 0 16px #000000'
+            boxShadow: 'inset 0 0 16px #000000',
+            transition: 'background-color .2s linear, box-shadow .05s linear',
         }
     },
     mint_button: {
         border: 'solid 4px black',
-        // outline: 'solid 4px black',
         backgroundColor: '#3effdb',
         color: 'black',
         '&:hover': {
             color: 'white',
-            backgroundColor: '#ff5ddc',
+            backgroundColor: '#d362d2',
         }
+    },
+    button_night_mode: {
+        border: 'solid 4px white',
+        outline: 'solid 4px black',
+        transition: 'border .4s linear, outline .4s linear',
     },
     text: {
         color: 'black',
-        textAlign: 'center'
+        textAlign: 'center',
+        transition: 'background-color .4s linear',
     },
     nav_title: {
         margin: '0',
@@ -68,8 +89,12 @@ const useStyles = createUseStyles({
         margin: '8px 0 26px 0',
         fontSize: '18px',
     },
+    night_mode_text: {
+        color: 'white',
+        transition: 'background-color .4s linear',
+    },
     heading_button: {
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         border: 'none',
         color: 'grey',
         cursor: 'pointer',
@@ -104,9 +129,30 @@ const useStyles = createUseStyles({
         '&::-webkit-scrollbar-thumb': {
             backgroundColor: '#5141f1',
             borderRadius: '8px',
-            border: 'solid 2px white',
-            marginLeft: '10px'
+            border: 'solid 2px black',
+            marginLeft: '10px',
+            transition: 'border .4s linear',
         }
+    },
+    section_container_night_mode: {
+        '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#5141f1',
+            borderRadius: '8px',
+            border: 'solid 2px white',
+            marginLeft: '10px',
+            transition: 'border .4s linear',
+        }
+    },
+    dotted_line: {
+        borderBottom: 'dotted 5px black',
+        width: '80%',
+        margin: '0 auto 18px auto',
+        transition: 'border-bottom .4s linear',
+
+    },
+    dotted_line_night_mode: {
+        borderBottom: 'dotted 5px white',
+        transition: 'border-bottom .4s linear',
     }
 });
 
@@ -124,9 +170,11 @@ const Navigation = () => {
     const classes = useStyles();
     const [walletConnected, setWalletConnected] = React.useState<boolean>(false);
     const [section, setSection] = React.useState<number>(0);
-    const [mintOpen, setMintOpen] = React.useState<boolean>(false);
-    const headings = ['About', 'RoadMap', 'Team', 'FAQ'];
     const sectionRef = React.useRef<HTMLDivElement>(null);
+    const dispatch = useDispatch();
+    const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
+    const headings = ['About', 'RoadMap', 'Team', 'FAQ'];
+    const lightMode = theme === Theme.Light;
 
     React.useEffect(() => {
         if (sectionRef.current) {
@@ -139,7 +187,6 @@ const Navigation = () => {
             (window as any).ethereum
                 .request({ method: 'eth_requestAccounts' })
                 .then((accounts: Array<string>) => {
-                    console.log('connected')
                     const [account] = accounts;
                     (window as any).userWalletAddress = account;
                     setWalletConnected(true);
@@ -172,7 +219,6 @@ const Navigation = () => {
                 <button
                     className={`${classes.heading_button} ${active ? classes.heading_button_active : ''}`}
                     onClick={() => setSection(i)}
-
                 >
                     {heading}
                 </button>
@@ -180,31 +226,34 @@ const Navigation = () => {
         })
     }
 
-    const setMintWindowOpen = () => {
-
-    }
-
-
     return (
-        <div className={classes.root}>
+        <div className={`${classes.root} ${lightMode ? '' : classes.root_night_mode}`}>
             <div className={classes.button_container}>
+                <ThemeToggle />
                 <button
-                    className={`${classes.button} ${walletConnected ? classes.mint_button : ''}`}
-                    onClick={() => walletConnected ? setMintOpen(true) : connectWallet()}>
+                    className={`
+                        ${classes.button}
+                        ${walletConnected ? classes.mint_button : ''}
+                        ${lightMode ? '' : classes.button_night_mode}
+                    `}
+                    onClick={() => walletConnected ? dispatch(setModalOpen(true)) : connectWallet()}>
                     {walletConnected ? 'Go To Mint' : 'Connect Wallet'}
                 </button>
             </div>
             <div>
-                <p className={`${classes.text} ${classes.nav_title}`}>🏝️ Welcome To pxplots! 🏝️</p>
-                <p className={`${classes.text} ${classes.nav_caption}`}>
-                    10,000 sm0l plots of land, living on the ethereum blockchain 🧱⛓️
+                <p className={`${classes.text} ${classes.nav_title} ${lightMode ? '' : classes.night_mode_text}`}>🏝️ Welcome To pxplots! 🏝️</p>
+                <p className={`${classes.text} ${classes.nav_caption} ${lightMode ? '' : classes.night_mode_text}`}>
+                    10,000 sm0l plots of land, living on the Ethereum blockchain 🧱⛓️
                 </p>
             </div>
-            <div style={{ borderBottom: 'dotted 5px black', width: '80%', margin: '0 auto 18px auto' }} />
+            <div className={`${classes.dotted_line} ${lightMode ? '' : classes.dotted_line_night_mode}`} />
             <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
                 {renderHeadings()}
             </div>
-            <div className={classes.section_container} ref={sectionRef}>
+            <div
+                className={`${classes.section_container} ${lightMode ? '' : classes.section_container_night_mode}`}
+                ref={sectionRef}
+            >
                 {renderSection()}
             </div>
             <div style={{ height: '60px' }} >

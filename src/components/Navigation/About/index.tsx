@@ -43,11 +43,14 @@ const About = () => {
                 </div>
             </div> */}
             <p className={classes.text}>
-                If you're looking for a new pfp, then pxlots might not be right for you. There's many more asthetically pleasing NFT's.
-                However, if you're looking for real utility, then maybe pxlots could be what you're looking for.
+                If you're looking for a new pfp, then a pxplot might not be right for you. There's many more aesthetically pleasing NFT's out there.
+                However, if you're looking for real utility, then pxplots might just be what you're looking for.
             </p>
             <p className={classes.text}>
-                Each pxplot will soon unlock it's own personalized market page on the pxplot site, owned by the NFT holder <span style={{ fontSize: '20px' }}>💎</span>
+                And no. We're not building a game.
+            </p>
+            <p className={classes.text}>
+                Each pxplot will soon unlock it's own personalized market page on the pxplot site, owned by the NFT holder.
             </p>
             <p className={classes.text}>
                 A customisable market page, for NFT artists who want to add their own personality to the platform they sell their work from.
@@ -61,7 +64,7 @@ const About = () => {
             </p>
             <p className={classes.text}>
                 So you have a personalised space from which you can introduce yourself & sell/mint your artwork,
-                without having to code anything yourself. <span style={{ fontSize: '20px' }}>🚫⌨️</span>
+                without having to code anything yourself.
             </p>
             <p className={classes.text}>
                 And all you'll need to access your plot, is to hold your pxplot in your wallet. Like a key.
@@ -76,12 +79,11 @@ const About = () => {
                 So as you might see, for a simple NFT, we have big plans.
             </p>
             <p className={classes.text}>
-                The first 1,000 plots will be free to mint, with the remaining 9,000 costing 0.05eth per plot. Check out the FAQ for more info.
+                The first 1,000 plots will be free to mint, with the remaining 9,000 costing 0.05eth per plot. Check out the RoadMap & FAQ for more info.
             </p>
             <p className={classes.text}>
                 Thank you for reading!
             </p>
-            <p>🙏</p>
             <p className={classes.text}>
                 pxplots
             </p>

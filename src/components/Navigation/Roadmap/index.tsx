@@ -23,34 +23,34 @@ const Roadmap = () => {
                 First 1000 are free to mint!
             </p>
             <p className={classes.text}>
-                Enjoy <span style={{ fontSize: '20px' }}>🚀</span>
+                Enjoy <span style={{ fontSize: '20px' }}>🙌</span>
             </p>
             <h2>
                 4000 minted
             </h2>
             <p className={classes.text}>
-                1eth giveaway to a random holder!
+                1eth giveaway to a random holder.
             </p>
             <h2>
                 6000 minted
             </h2>
             <p className={classes.text}>
-                2eth giveaway to a random holder!
+                2eth giveaway to a random holder.
             </p>
             <h2>
                 8000 minted
             </h2>
             <p className={classes.text}>
-                3eth giveaway to a random holder!
+                3eth giveaway to a random holder.
             </p>
             <h2>
                 10000 minted
             </h2>
             <p className={classes.text}>
-                5eth giveaway to a random holder! <span style={{ fontSize: '20px' }}>🤑</span>
+                5eth giveaway to a random holder.
             </p>
             <p className={classes.text}>
-                And production begins... <span style={{ fontSize: '20px' }}>🌱</span>
+                And production begins...
             </p>
             <h2>
                 Phase 1: Research & Community
