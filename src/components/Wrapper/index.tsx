@@ -1,8 +1,12 @@
 import * as React from 'react';
 import { createUseStyles } from 'react-jss';
-import GridContainer from '../Grid/GridContainer/index.tsx';
-import Menu from '../Menu/index.tsx';
-import Modal from '../Modal/index.tsx';
+import GridContainer from '../Grid/GridContainer/';
+import Navigation from '../Navigation/';
+// import Menu from '../Menu/';
+import Modal from '../Modal/';
+import { getItemFromLocalStorage } from '../../helpers/storage';
+import { useDispatch } from 'react-redux';
+import { setTheme } from '../../Redux/slices/themeSlice';
 
 const useStyles = createUseStyles({
 	container: {
@@ -14,6 +18,15 @@ const useStyles = createUseStyles({
 const Wrapper = () => {
 	const [modalOpen, setModalOpen] = React.useState<boolean>(false);
 	const classes = useStyles();
+	const dispatch = useDispatch();
+
+	React.useEffect(() => {
+		const storedTheme = getItemFromLocalStorage('theme');
+
+		if (storedTheme) {
+			dispatch(setTheme(storedTheme))
+		}
+	}, [])
 
 	const openModal = () => setModalOpen(true);
 
@@ -22,8 +35,11 @@ const Wrapper = () => {
 	return (
 		<div className={classes.container}>
 			<Modal open={modalOpen} closeModal={closeModal} />
-			<GridContainer />
-			<Menu openModal={openModal} />
+			<div style={{ height: '100vh', width: '100vw', display: 'flex' }}>
+				<Navigation />
+				<GridContainer />
+			</div>
+			{/* <Menu openModal={openModal} /> */}
 		</div>
 	);
 };
