@@ -34,6 +34,7 @@ const useStyles = createUseStyles({
     button_container: {
         alignItems: 'center',
         display: 'flex',
+        flexFlow: 'row',
         height: 'fit-content',
         marginBottom: '30px',
         justifyContent: 'space-between'
@@ -80,10 +81,21 @@ const useStyles = createUseStyles({
         textAlign: 'center',
         transition: 'background-color .4s linear',
     },
+    unconnected_text: {
+        opacity: 0,
+    },
+    connected_text_container: {
+        height: '16px',
+    },
+    connected_text: {
+        fontSize: '12px',
+        opacity: 1,
+        transition: 'opacity .2s ease-in'
+
+    },
     nav_title: {
         margin: '0',
         fontSize: '28px',
-
     },
     nav_caption: {
         margin: '8px 0 26px 0',
@@ -169,6 +181,8 @@ enum Sections {
 const Navigation = () => {
     const classes = useStyles();
     const [walletConnected, setWalletConnected] = React.useState<boolean>(false);
+    const [userWalletAddress, setUserWalletAddress] = React.useState<string>('');
+
     const [section, setSection] = React.useState<number>(0);
     const sectionRef = React.useRef<HTMLDivElement>(null);
     const dispatch = useDispatch();
@@ -190,6 +204,7 @@ const Navigation = () => {
                     const [account] = accounts;
                     (window as any).userWalletAddress = account;
                     setWalletConnected(true);
+                    setUserWalletAddress(account);
                 });
         } else {
             alert('No Web3 Wallet Extension Detected');
@@ -230,15 +245,30 @@ const Navigation = () => {
         <div className={`${classes.root} ${lightMode ? '' : classes.root_night_mode}`}>
             <div className={classes.button_container}>
                 <ThemeToggle />
-                <button
-                    className={`
+                <div>
+                    <button
+                        className={`
                         ${classes.button}
                         ${walletConnected ? classes.mint_button : ''}
                         ${lightMode ? '' : classes.button_night_mode}
                     `}
-                    onClick={() => walletConnected ? dispatch(setModalOpen(true)) : connectWallet()}>
-                    {walletConnected ? 'Go To Mint' : 'Connect Wallet'}
-                </button>
+                        onClick={() => walletConnected ? dispatch(setModalOpen(true)) : connectWallet()}>
+                        {walletConnected ? 'Go To Mint' : 'Connect Wallet'}
+                    </button>
+                    <div className={classes.connected_text_container}>
+                        <p
+                            className={`
+                                ${classes.connected_text_container}
+                                ${userWalletAddress ? classes.connected_text : classes.unconnected_text}
+                            `}
+                            style={{ margin: 0, textAlign: 'center' }}
+                        >
+                            {userWalletAddress ?
+                                `Connected as ...${userWalletAddress.split('').splice(0, 10).join('')}`
+                                : ''}
+                        </p>
+                    </div>
+                </div>
             </div>
             <div>
                 <p className={`${classes.text} ${classes.nav_title} ${lightMode ? '' : classes.night_mode_text}`}>🏝️ Welcome To pxplots! 🏝️</p>

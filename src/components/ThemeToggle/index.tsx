@@ -18,7 +18,7 @@ const useStyles = createUseStyles({
         overflow: 'hidden',
         position: 'relative',
         width: '70px',
-        transition: 'background-color .2s linear',
+        transition: 'background-color .1s linear',
         '&:hover': {
             backgroundColor: '#dedede'
         }
@@ -34,7 +34,7 @@ const useStyles = createUseStyles({
         overflow: 'hidden',
         position: 'relative',
         width: '70px',
-        transition: 'background-color .2s linear',
+        transition: 'background-color .1s linear',
         '&:hover': {
             backgroundColor: '#2d2d2d'
         }
