@@ -52,7 +52,7 @@ const useStyles = createUseStyles({
         transition: 'border .4s linear, outline .4s linear, background-color .2s linear',
         width: '180px',
         '&:hover': {
-            backgroundColor: '#fefd78',
+            backgroundColor: '#3effdb',
             color: 'black',
             transition: 'background-color .2s linear',
         },

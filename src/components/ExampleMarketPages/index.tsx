@@ -3,15 +3,17 @@ import { createUseStyles } from 'react-jss';
 import { useSelector } from 'react-redux';
 import { Theme } from '../../enums/themes';
 import { IThemeState } from '../../Redux/slices/themeSlice';
+import ExampleMarketPageA from './ExamplePage1';
 
 const useStyles = createUseStyles({
     container: {
-        height: '100%',
-        width: '100%',
-        position: 'absolute',
-        fontFamily: 'Roboto Slab, serif',
         display: 'flex',
-        flexFlow: 'column'
+        fontFamily: 'Roboto Slab, serif',
+        flexFlow: 'column',
+        lineHeight: 'normal',
+        height: '100%',
+        position: 'absolute',
+        width: '100%',
 
     },
     sub_container: {
@@ -28,11 +30,40 @@ const useStyles = createUseStyles({
         height: '18vw',
         width: '28vw',
         transition: 'background-color .4s linear',
+        overflowY: 'auto',
+        position: 'relative',
+
+        '&::-webkit-scrollbar': {
+            width: '0.4em',
+            height: '10px !important'
+        },
+
+        '&::-webkit-scrollbar-track': {
+            padding: '0 16px'
+        },
+
+        '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#5141f1',
+            borderRadius: '8px',
+            border: 'solid 2px black',
+            marginLeft: '10px',
+            transition: 'border .4s linear',
+        }
+
     },
     example_site_container_night: {
         backgroundColor: 'black',
         transition: 'background-color .4s linear',
+
+        '&::-webkit-scrollbar-thumb': {
+            backgroundColor: '#5141f1',
+            borderRadius: '8px',
+            border: 'solid 2px white',
+            marginLeft: '10px',
+            transition: 'border .4s linear',
+        }
     }
+
 });
 
 const ExampleMarketPages = () => {
@@ -43,12 +74,13 @@ const ExampleMarketPages = () => {
     return (
         <div className={classes.container}>
             <div className={classes.sub_container} style={{ marginTop: '60px' }}>
-                <div className={`${classes.example_site_container} ${lightMode ? '' : classes.example_site_container_night}`}>
 
+                <div className={`${classes.example_site_container} ${lightMode ? '' : classes.example_site_container_night}`}>
+                    <ExampleMarketPageA />
                 </div>
                 <div className={`${classes.example_site_container} ${lightMode ? '' : classes.example_site_container_night}`}>
-
                 </div>
+
             </div>
             <div className={classes.sub_container} style={{ marginBottom: '60px' }}>
                 <div className={`${classes.example_site_container} ${lightMode ? '' : classes.example_site_container_night}`}>

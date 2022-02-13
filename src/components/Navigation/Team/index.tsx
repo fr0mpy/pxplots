@@ -4,6 +4,15 @@ import { createUseStyles } from 'react-jss';
 const useStyles = createUseStyles({
     text: {
         fontFamily: 'Roboto Slab, serif',
+    },
+    link: {
+        color: '#5141f1',
+        fontWeight: 900,
+        cursor: 'pointer !important',
+        textDecoration: 'none',
+        '&:hover': {
+            color: '#3effdb',
+        }
     }
 });
 
@@ -16,7 +25,7 @@ const Team = () => {
                 Hello frens <span style={{ fontSize: '20px' }}>🖖</span>
             </p>
             <p className={classes.text}>
-                For now, it's just me. My names Frompy and I'm a web developer and kind of an artist? Idk. What my code produces is my art,
+                For now, it's just me. My names <a href={'https://twitter.com/frompy_'} className={classes.link}> Frompy </a>and I'm a web developer and kind of an artist? Idk. What my code produces is my art,
                 but you could say that about anything really. So maybe i'm not, who knows?
             </p>
             <p className={classes.text}>

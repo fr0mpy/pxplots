@@ -35,11 +35,11 @@ const GridBoxes = () => {
 		return gridBoxes
 	}
 
-	const gridBoxesz = createGridBoxes()
+	const gridBoxes = createGridBoxes()
 
 	return (
 		<div className={classes.container}>
-			{gridBoxesz}
+			{gridBoxes}
 			<span className={classes.deadPixels} id={'dead-pixels'} />
 		</div>
 	);

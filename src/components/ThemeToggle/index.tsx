@@ -8,6 +8,7 @@ import { setTheme } from '../../Redux/slices/themeSlice/';
 
 const useStyles = createUseStyles({
     button: {
+        alignSelf: 'flex-start',
         backgroundColor: 'white',
         borderRadius: '30px',
         boxShadow: '2px 4px 8px -2px grey',
@@ -15,6 +16,7 @@ const useStyles = createUseStyles({
         display: 'flex',
         height: '35px',
         justifyContent: 'space-between',
+        marginTop: '4px',
         overflow: 'hidden',
         position: 'relative',
         width: '70px',
@@ -24,6 +26,7 @@ const useStyles = createUseStyles({
         }
     },
     button_night: {
+        alignSelf: 'flex-start',
         backgroundColor: 'black',
         borderRadius: '30px',
         boxShadow: '2px 1px 8px -2px grey',
@@ -31,6 +34,7 @@ const useStyles = createUseStyles({
         display: 'flex',
         height: '35px',
         justifyContent: 'space-between',
+        marginTop: '4px',
         overflow: 'hidden',
         position: 'relative',
         width: '70px',

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { createUseStyles } from 'react-jss';
+import PxplotCube from '../../pxplotCube';
 
 const useStyles = createUseStyles({
     text: {
@@ -43,8 +44,20 @@ const About = () => {
                 </div>
             </div> */}
             <p className={classes.text}>
-                If you're looking for a new pfp, then a pxplot might not be right for you. There's many more aesthetically pleasing NFT's out there.
-                However, if you're looking for real utility, then pxplots might just be what you're looking for.
+                This, is a pxplot.
+            </p>
+            <PxplotCube />
+            <p className={classes.text} style={{ marginBottom: '36px' }}>
+                ...Yep, that's it.
+            </p>
+            <p className={classes.text}>
+                If you're looking for a new pfp or chasing rares, then a pxplot might not be right for you. There's many more aesthetically pleasing NFT's, with cool traits out there.
+            </p>
+            <p className={classes.text}>
+                However...
+            </p>
+            <p className={classes.text}>
+                If you're an NFT artist looking to build your brand or just someone interested real utility, then maybe pxplots will be of interest.
             </p>
             <p className={classes.text}>
                 And no. We're not building a game.
@@ -53,7 +66,7 @@ const About = () => {
                 Each pxplot will soon unlock it's own personalized market page on the pxplot site, owned by the NFT holder.
             </p>
             <p className={classes.text}>
-                A customisable market page, for NFT artists who want to add their own personality to the platform they sell their work from.
+                A customisable market page, for NFT artists who want to add their own creativity to the platform they sell their work from. Without having to code anything themselves.
             </p>
             <p className={classes.text}>
                 Think LooksRare/Opensea crossed with SquareSpace.
@@ -63,11 +76,10 @@ const About = () => {
                 You'll have your own page e.g. pxplots.xyz/yourname, with a range of pre made layouts to choose from or be able to create your own.
             </p>
             <p className={classes.text}>
-                So you have a personalised space from which you can introduce yourself & sell/mint your artwork,
-                without having to code anything yourself.
+                From which you can introduce yourself & sell/mint your artwork.
             </p>
             <p className={classes.text}>
-                And all you'll need to access your plot, is to hold your pxplot in your wallet. Like a key.
+                And all you'll need to authenticate yourself and access your plot, is to hold your pxplot in your wallet. Like a key.
             </p>
             <p className={classes.text}>
                 <span style={{ fontSize: '20px' }}>🗝️</span>

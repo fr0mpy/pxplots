@@ -1,7 +1,33 @@
 UI
 
 fix mint modal functionality
-Modal overlay fade in transition.
-On hover example site wobble
 mint window
-Add pxplot nft exmaple & small write up about it 
+On hover example border transition fade to cyan
+loading spinner in connect wallet button
+Mobile/Tablet
+loading spinner
+
+
+Example Overlays
+Create momentum scrolling component with MOMENTUM Scrolling with Smooth-Scrollbar.js!
+
+
+Example A.
+Transition component to fade in text
+On hover text fade in on first blocks
+on hover expand for first blocks
+on hover opacity for cubes
+On mint modal overlay & close functionality 
+Img shifter for middle block
+Change from Lorem Ipsum
+Nighttime mode
+Font
+
+Example B. 
+Carousel
+
+Example C. 
+Far left container, rest of body scrolls with loads of different shapes
+
+Example D. 
+https://rubenstomdesign.com/

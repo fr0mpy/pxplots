@@ -19,9 +19,11 @@ const useStyles = createUseStyles({
 const GridContainer = () => {
 	const classes = useStyles();
 	const divEl = React.useRef<HTMLDivElement>(null);
-	const modalOpen = useSelector((state: IModalState): IModalState => state.modalOpen)
-	console.log('modal >', modalOpen)
+	const { modalOpen } = useSelector((state: any): any => state.modal)
+	// const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
 
+	console.log('modal >', modalOpen)
+	// 
 	return (
 		<div className={classes.container} ref={divEl}>
 			{modalOpen ? <MintModal /> : <ExampleMarketPages />}

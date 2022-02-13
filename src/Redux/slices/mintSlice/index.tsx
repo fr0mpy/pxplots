@@ -2,12 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 export interface IModalState {
     modalOpen: any
-}
+};
 
-const initialState = { modalOpen: false } as IModalState
+const initialState = { modalOpen: false } as IModalState;
 
 const modalSlice = createSlice({
-    name: 'theme',
+    name: 'modal',
     initialState,
     reducers: {
         setModalOpen(state, action: PayloadAction<boolean>) {

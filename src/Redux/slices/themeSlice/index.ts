@@ -2,10 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Theme } from '../../../enums/themes';
 
 export interface IThemeState {
-    theme: any
-}
+    theme: any;
+};
 
-const initialState = { theme: Theme.Light } as IThemeState
+const initialState = { theme: Theme.Light } as IThemeState;
 
 const themeSlice = createSlice({
     name: 'theme',
