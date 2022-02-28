@@ -13,12 +13,7 @@ Create momentum scrolling component with MOMENTUM Scrolling with Smooth-Scrollba
 
 
 Example A.
-Transition component to fade in text
-On hover text fade in on first blocks
 on hover expand for first blocks
-on hover opacity for cubes
-On mint modal overlay & close functionality 
-Img shifter for middle block
 Change from Lorem Ipsum
 Nighttime mode
 Font

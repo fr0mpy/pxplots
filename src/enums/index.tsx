@@ -5,3 +5,8 @@ export enum Sections {
     Faq = 3,
     DontClick = 4
 }
+
+export enum XAxis {
+    Left = 'left',
+    Right = 'right'
+}

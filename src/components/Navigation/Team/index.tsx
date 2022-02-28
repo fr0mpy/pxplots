@@ -45,14 +45,14 @@ const Team = () => {
                 And since then, I've not been able to stop thinking about it.
             </p>
             <p className={classes.text}>
-                It's such a powerful idea and the inspiration behind pxplots -
-                To support artists starting out, in growing their personal brand and their fan base.
+                It's such a powerful concept and the inspiration behind pxplots -
+                To support artists in this new digital landscape.
             </p>
             <p className={classes.text}>
                 Like so many of you, I'm ridiculously excited for what the future holds for web3 and I truly hope pxplots can become an integral part of it.
             </p>
             <p className={classes.text}>
-                Thankyou for reading about the start of this journey. Your time is greatly appreciated <span style={{ fontSize: '20px' }}>🙏</span>
+                Thankyou for reading. Your time is greatly appreciated <span style={{ fontSize: '20px' }}>🙏</span>
             </p>
             <p className={classes.text}>
                 Peace, love & gm's

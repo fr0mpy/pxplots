@@ -51,32 +51,35 @@ const About = () => {
                 ...Yep, that's it.
             </p>
             <p className={classes.text}>
-                If you're looking for a new pfp or chasing rares, then a pxplot might not be right for you. There's many more aesthetically pleasing NFT's, with cool traits out there.
+                If you're looking for a new pfp or chasing rares, then a pxplot probably isn't right for you. There's many more aesthetically pleasing NFT's, with cool traits out there.
             </p>
             <p className={classes.text}>
-                However...
+                However,
             </p>
             <p className={classes.text}>
-                If you're an NFT artist looking to build your brand or just someone interested real utility, then maybe pxplots will be of interest.
+                If you're an artist looking to build your platform & brand, or just someone interested real utility, then maybe investing in a humble coloured cube will be of interest.
             </p>
             <p className={classes.text}>
-                And no. We're not building a game.
+                Minting a pxplot will help fund this project and it's overall goal where each pxplot will unlock it's own independent market page on the pxplot website, owned by the NFT holder.
             </p>
             <p className={classes.text}>
-                Each pxplot will soon unlock it's own personalized market page on the pxplot site, owned by the NFT holder.
+                A customisable market page for NFT artists to personalise, and then sell, mint or link their work from. Without having to code anything themselves.
             </p>
             <p className={classes.text}>
-                A customisable market page, for NFT artists who want to add their own creativity to the platform they sell their work from. Without having to code anything themselves.
+                Imagine LooksRare/Opensea crossed with SquareSpace.
             </p>
             <p className={classes.text}>
-                Think LooksRare/Opensea crossed with SquareSpace.
+                In fact, you can check out some ideas of market pages layouts to the right {'>'}
             </p>
             <p className={classes.text}>💭</p>
             <p className={classes.text}>
-                You'll have your own page e.g. pxplots.xyz/yourname, with a range of pre made layouts to choose from or be able to create your own.
+                You'll have your own page e.g. pxplots.xyz/yourname, with a range of pre made theme layouts to choose from or be able to create your own.
             </p>
             <p className={classes.text}>
-                From which you can introduce yourself & sell/mint your artwork.
+                From which you can introduce yourself, your work and grow your fan base.
+            </p>
+            <p className={classes.text}>
+                Whether you're selling images, videos or music, you'll keep 97% of the sale - With 1% going back into maintain pxplots and the remaining 2% being split between all pxplot holders.
             </p>
             <p className={classes.text}>
                 And all you'll need to authenticate yourself and access your plot, is to hold your pxplot in your wallet. Like a key.
@@ -85,16 +88,16 @@ const About = () => {
                 <span style={{ fontSize: '20px' }}>🗝️</span>
             </p>
             <p className={classes.text}>
-                You can even sell your plot onwards, if you want to. With the page being wiped on transfer and the new holder being able to again customise the page however they wish to.
+                You can even sell your plot onwards, if you wish to. With the page being wiped on transfer and the new holder being able to again customise the page however they wish to.
             </p>
             <p className={classes.text}>
-                So as you might see, for a simple NFT, we have big plans.
+                The first 1000 plots will be free to mint - with the remaining 9,000 costing 0.06eth per plot.
             </p>
             <p className={classes.text}>
-                The first 1,000 plots will be free to mint, with the remaining 9,000 costing 0.05eth per plot. Check out the RoadMap & FAQ for more info.
+                Check out the RoadMap / FAQ for more info. Or, drop a message on Twitter (our Discord will be open soon).
             </p>
             <p className={classes.text}>
-                Thank you for reading!
+                Thank you for reading.
             </p>
             <p className={classes.text}>
                 pxplots

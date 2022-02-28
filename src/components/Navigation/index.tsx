@@ -90,7 +90,7 @@ const useStyles = createUseStyles({
     connected_text: {
         fontSize: '12px',
         opacity: 1,
-        transition: 'opacity .2s ease-in'
+        transition: 'opacity .2s ease-in-out'
 
     },
     nav_title: {
