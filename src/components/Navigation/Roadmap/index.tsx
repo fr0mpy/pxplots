@@ -14,7 +14,18 @@ const Roadmap = () => {
     return (
         <>
             <p className={classes.text}>
-                Our roadmap is set into 4 sections: Minting, Research, Design & Development. Please read all the way down for the full picture.
+                As you've read, the plans for pxplots are pretty big. To achieve the overall goal, whilst still delivering a usable product,
+                our roadmap is split into multiple goals to manage. Firstly, is our Minting roadmap. It's nothing special, more just an immediate thankyou to pxplot holders.
+
+            </p>
+            <p className={classes.text}>
+                Following this we have a number of product goals to reach. Each which will follow a similar formular - Research, Design, Development.
+            </p>
+            <p className={classes.text}>
+                Production Goal 1 - pxplot NFT authentication. A selection of semi-customisable template pages, which allow users to link through to their listings on LooksRare / Opensea.
+            </p>
+            <p className={classes.text}>
+                Production Goal 2 -
             </p>
             <h2>
                 1000 minted
