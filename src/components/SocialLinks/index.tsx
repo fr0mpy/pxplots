@@ -8,7 +8,7 @@ const useStyles = createUseStyles({
 		height: '60px',
 		justifyContent: 'center',
 		margin: '8px 0 0 0 ',
-		'@media screen and (max-width: 1200px)': {
+		'@media screen and (max-width: 1024px)': {
 			alignItems: 'center',
 			display: 'flex',
 			justifyContent: 'center',
@@ -24,10 +24,15 @@ const useStyles = createUseStyles({
 			opacity: '0.8'
 		},
 
-		'@media screen and (max-width: 1200px)': {
+		'@media screen and (max-width: 1024px)': {
 			height: '48px',
 			margin: '0 6px',
 			width: '48px'
+		},
+		'@media screen and (max-width: 600px)': {
+			height: '38px',
+			margin: '0 6px',
+			width: '38px'
 		},
 	}
 });

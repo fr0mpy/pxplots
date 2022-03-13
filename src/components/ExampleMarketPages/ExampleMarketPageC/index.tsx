@@ -2,7 +2,9 @@ import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 import { useSelector } from 'react-redux';
 import { XAxis } from '../../../enums';
+import { DeviceType } from '../../../enums/devices';
 import { Theme } from '../../../enums/themes';
+import { deviceTypeIs } from '../../../helpers/devices';
 import { IThemeState } from '../../../Redux/slices/themeSlice';
 
 const useStyles = createUseStyles({
@@ -17,7 +19,6 @@ const useStyles = createUseStyles({
 		transition: 'opacity .2s ease-in-out',
 		display: 'flex',
 		flexFlow: 'row',
-		// paddingLeft: '115px',
 		zIndex: 2,
 
 		'&:hover': {
@@ -25,13 +26,27 @@ const useStyles = createUseStyles({
 			opacity: 1
 		},
 
-		'@media screen and (max-width: 1200px)': {
+		'@media screen and (max-width: 1024px)': {
 			border: 'solid 5px #5141f1',
 			borderRadius: '8px',
-			height: '80%',
 			opacity: 1,
+			lineHeight: 'normal',
+			width: '80vw',
+			height: '72%',
+			left: '50%',
 			position: 'absolute',
-			width: '80vw'
+			top: '50%',
+			transform: 'translate(-50%, -50%)'
+		},
+
+		'@media screen and (max-width: 600px)': {
+			height: '68%',
+			top: '48%',
+			width: '88%'
+		},
+
+		'@media screen and (max-width: 380px)': {
+			height: '62.5%'
 		}
 	},
 	nav: {
@@ -44,7 +59,7 @@ const useStyles = createUseStyles({
 		padding: '8px',
 		position: 'absolute',
 		width: '115px',
-		zIndex: 1,
+		zIndex: 1
 	},
 	right_container: {
 		display: 'flex',
@@ -69,21 +84,22 @@ const useStyles = createUseStyles({
 			border: 'solid 2px black',
 			marginLeft: '10px',
 			transition: 'border .4s linear',
-		}
+		},
+
 	},
 	right_half_container: {
 		flex: '1',
 		width: '100%',
-		marginRight: '4px'
+		marginRight: '4px',
+
+		'@media screen and (max-width: 600px)': {
+			paddingTop: '64px'
+		},
 	},
 	rect: {
 		alignItems: 'center',
 		display: 'flex',
 		justifyContent: 'center',
-		// '&:hover': {
-		//     opacity: 0.5,
-		//     transition: 'opacity .2s ease-in-out'
-		// }
 	},
 	circles_container: {
 		bottom: '6px',
@@ -112,11 +128,38 @@ const useStyles = createUseStyles({
 		margin: 0,
 		opacity: 0,
 		textAlign: 'center',
-		transition: 'opacity .2s ease-in-out'
+		transition: 'opacity .2s ease-in-out',
 	},
 	text_hovered: {
 		opacity: 1,
 		transition: 'opacity .2s ease-in-out'
+	},
+	nav_header: {
+		fontSize: '14px',
+		textAlign: 'center',
+
+		'@media screen and (max-width: 1024px)': {
+			fontSize: '22px'
+		},
+	},
+	nav_text: {
+		fontSize: '10px',
+		textAlign: 'center',
+
+		'@media screen and (max-width: 1024px)': {
+			fontSize: '18px'
+		},
+	},
+	square: {
+		backgroundColor: 'black',
+		height: '34px',
+		width: '34px',
+		margin: '8px auto 0',
+
+		'@media screen and (max-width: 600px)': {
+			margin: 0
+		},
+
 	}
 })
 
@@ -129,6 +172,7 @@ type xAxis = XAxis.Left | XAxis.Right;
 const ExampleMarketPageC = () => {
 	const classes = useStyles();
 	const [hoveredRect, setHoveredRect] = React.useState<IHoveredRect | boolean>(false);
+
 	const rectsLeft = [
 		{ height: 105, bgColour: '#f187fa' },
 		{ height: 125, bgColour: '#e4274e' },
@@ -159,6 +203,9 @@ const ExampleMarketPageC = () => {
 		{ height: 170, bgColour: '#89c0ff' },
 		{ height: 155, bgColour: '#14eb9c' },
 	]
+
+	const isDesktop = deviceTypeIs(DeviceType.Desktop);
+	const isMobile = deviceTypeIs(DeviceType.Mobile);
 
 	const createRect = (
 		height: number,
@@ -232,17 +279,57 @@ const ExampleMarketPageC = () => {
 
 	return (
 		<div className={classes.container}>
-			{renderCircles()}
+			{isMobile
+				? <div style={{
+					height: '64px',
+					backgroundColor: 'white',
+					boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px',
+					width: '100%',
+					position: 'fixed',
+					top: 0,
+					zIndex: 2
+				}}> <div
+					style={{
+						display: 'flex',
+						alignItems: 'center',
+						height: '100%',
+						justifyContent: 'space-around'
+					}}
+				>
+						<div className={classes.square} />
+						<div className={classes.square} />
+						<div className={classes.square} />
+					</div>
 
-			<div className={classes.nav}>
-				<p style={{ fontSize: '14px', textAlign: 'center' }}>Your Page</p>
-				<p style={{ fontSize: '10px', textAlign: 'center' }}>Maybe you prefer less text and more images</p>
-				<p style={{ fontSize: '10px', textAlign: 'center' }}>You can see where we've going with this. There will be many options</p>
+				</div>
+				: <>
+					{renderCircles()}
+					<div className={classes.nav}>
+						<p className={classes.nav_header}>
+							Your Page
+						</p>
+						<p className={classes.nav_text}>
+							Maybe you prefer less text and more images
+						</p>
+						<p className={classes.nav_text}>
+							You can see where we've going with this. There will be many options
+						</p>
+						<div className={classes.square} />
+						{!isDesktop
+							? <>
+								<div className={classes.square} />
+								<div className={classes.square} />
+							</>
+							: null}
 
-				<div style={{ backgroundColor: 'black', height: '34px', width: '34px', margin: '8px auto 0' }} />
-			</div>
+					</div>
+				</>
+			}
 			<div className={classes.right_container}>
-				<div style={{ width: '115px' }} />
+				{isMobile
+					? null
+					: <div style={{ width: '115px' }} />}
+
 				<div className={classes.right_half_container}>
 					{renderRects(rectsLeft, XAxis.Left)}
 				</div>
@@ -250,7 +337,7 @@ const ExampleMarketPageC = () => {
 					{renderRects(rectsRight, XAxis.Right)}
 				</div>
 			</div>
-		</div>
+		</div >
 	);
 };
 

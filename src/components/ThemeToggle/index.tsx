@@ -24,7 +24,7 @@ const useStyles = createUseStyles({
 		'&:hover': {
 			backgroundColor: '#dedede'
 		},
-		'@media screen and (max-width: 1200px)': {
+		'@media screen and (max-width: 1024px)': {
 			marginTop: '0'
 		}
 	},
@@ -45,7 +45,7 @@ const useStyles = createUseStyles({
 		'&:hover': {
 			backgroundColor: '#2d2d2d'
 		},
-		'@media screen and (max-width: 1200px)': {
+		'@media screen and (max-width: 1024px)': {
 			marginTop: '0'
 		}
 	},

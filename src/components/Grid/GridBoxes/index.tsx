@@ -5,14 +5,8 @@ import GridBox from '../GridBox/'
 const useStyles = createUseStyles({
 	container: {
 		display: 'flex',
-		flexFlow: 'row wrap'
-	},
-	root: {
-		//
-	},
-	deadPixels: {
-		backgroundColor: 'black',
-		flex: 1
+		flexFlow: 'row wrap',
+		width: 'calc(100% + 30px)'
 	}
 });
 
@@ -40,7 +34,7 @@ const GridBoxes = () => {
 	return (
 		<div className={classes.container}>
 			{gridBoxes}
-			<span className={classes.deadPixels} id={'dead-pixels'} />
+			{/* <span className={classes.deadPixels} id={'dead-pixels'} /> */}
 		</div>
 	);
 };

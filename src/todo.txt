@@ -1,28 +1,13 @@
 UI
 
-fix mint modal functionality
+mint modal functionality
 mint window
-On hover example border transition fade to cyan
-loading spinner in connect wallet button
-Mobile/Tablet
-loading spinner
-
-
-Example Overlays
+loading spinner in connect wallet buttonp
 Create momentum scrolling component with MOMENTUM Scrolling with Smooth-Scrollbar.js!
-
-
-Example A.
-on hover expand for first blocks
-Change from Lorem Ipsum
-Nighttime mode
-Font
-
-Example B. 
-Carousel
-
-Example C. 
-Far left container, rest of body scrolls with loads of different shapes
-
-Example D. 
-https://rubenstomdesign.com/
+Nighttime mode for all screens
+roadmap copy
+make sure it reads as though we're planning these features, not that they're immediatley guareteneed
+make sure 4 easter eggs
+less rectangle squares in exmaple c for tablet
+'the game' in console 
+mint modal for exmaple screens

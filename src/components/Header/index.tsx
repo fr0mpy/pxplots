@@ -12,12 +12,15 @@ const useStyles = createUseStyles({
 		boxSizing: 'border-box',
 		fontFamily: 'Roboto Slab, serif',
 		padding: '18px 16px 8px',
+		top: 0,
 		transition: 'background-color .4s linear',
 		zIndex: 1,
 
-		'@media screen and (max-width: 1200px)': {
+		'@media screen and (max-width: 1024px)': {
 			boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px',
 			lineHeight: 'normal',
+			position: 'absolute',
+			width: '100%',
 
 		}
 	},
@@ -31,12 +34,14 @@ const useStyles = createUseStyles({
 		display: 'flex',
 		flexFlow: 'row',
 		height: 'fit-content',
-		marginBottom: '30px',
+		// marginBottom: '16px',
 		justifyContent: 'space-between',
 
-		'@media screen and (max-width: 1200px)': {
-			// height: '86px',
-			marginBottom: 'unset'
+		'@media screen and (max-width: 1024px)': {
+			// marginBottom: '30px'
+		},
+		'@media screen and (max-width: 600px)': {
+			marginBottom: '0px'
 		}
 	},
 	button: {
@@ -120,6 +125,7 @@ const Header = () => {
 	}, [section])
 
 	const connectWallet = () => {
+		console.log('connectin')
 		if ((window as any).ethereum) {
 			(window as any).ethereum
 				.request({ method: 'eth_requestAccounts' })

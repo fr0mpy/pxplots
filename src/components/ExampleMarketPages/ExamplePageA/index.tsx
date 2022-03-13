@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 import { useSelector } from 'react-redux';
+import { DeviceType } from '../../../enums/devices';
 import { Theme } from '../../../enums/themes';
+import { deviceTypeIs } from '../../../helpers/devices';
 import { IThemeState } from '../../../Redux/slices/themeSlice';
 const useStyles = createUseStyles({
 	overlay: {
@@ -18,23 +20,35 @@ const useStyles = createUseStyles({
 		opacity: 0.25,
 		backgroundColor: 'black',
 		transition: 'opacity .2s ease-in-out',
-		width: '100%',
 
 		'&:hover': {
 			transition: 'opacity .2s ease-in-out',
 			opacity: 1
 		},
 
-		'@media screen and (max-width: 1200px)': {
+		'@media screen and (max-width: 1024px)': {
 			border: 'solid 5px #5141f1',
 			borderRadius: '8px',
 			boxSizing: 'border-box',
-			height: '80vh',
 			opacity: 1,
 			overflowY: 'auto',
 			lineHeight: 'normal',
-			width: '80vw'
+			width: '80vw',
+			height: '72%',
+			left: '50%',
+			position: 'absolute',
+			top: '50%',
+			transform: 'translate(-50%, -50%)'
 		},
+
+		'@media screen and (max-width: 600px)': {
+			height: '68%',
+			top: '48%',
+			width: '88%'
+		},
+		'@media screen and (max-width: 380px)': {
+			height: '62.5%'
+		}
 
 	},
 	header_text: {
@@ -66,6 +80,14 @@ const useStyles = createUseStyles({
 		margin: '6px',
 		display: 'flex',
 		alignItems: 'flex-end',
+
+		'@media screen and (max-width: 1024px)': {
+			height: '250px'
+		},
+
+		'@media screen and (max-width: 600px)': {
+			height: '140px',
+		},
 	},
 	text: {
 		color: 'white',
@@ -108,31 +130,60 @@ const useStyles = createUseStyles({
 	},
 	cube_container: {
 		width: '80px',
-		margin: '4px'
+		margin: '4px',
+
+		'@media screen and (max-width: 1024px)': {
+			width: '120px'
+		},
+
+		'@media screen and (max-width: 600px)': {
+			width: 'fit-content'
+		},
 	},
 	cube: {
-		height: '80px',
-		width: '80px',
 		backgroundColor: '#8dc2ff',
 		cursor: 'pointer',
+		height: '80px',
+		margin: 0,
 		transition: 'opacity .2s ease-in-out',
+		width: '80px',
 
 		'&:hover': {
 			transition: 'opacity .2s ease-in-out',
 			opacity: .6
-		}
+		},
+		'@media screen and (max-width: 1024px)': {
+			height: '120px',
+			width: '120px'
+		},
+		'@media screen and (max-width: 600px)': {
+			height: '84px',
+			width: '84px'
+		},
 	},
 	last_cubes_container: {
 		display: 'flex',
 		flexFlow: 'row',
 		justifyContent: 'center',
-		height: '120px'
+		marginBottom: '12px',
+		height: '116px',
+
+		'@media screen and (max-width: 1024px)': {
+			minHeight: '181px'
+		},
+
+		'@media screen and (max-width: 600px)': {
+			minHeight: '100px',
+			// width: '33%'
+		},
 	},
 	last_cubes: {
-		height: '160x',
+		// height: '160px',
 		flex: 1,
 		backgroundColor: '#ffeea7',
-		margin: '6px'
+		margin: '6px',
+		height: '100%',
+
 	},
 	textHoverText: {
 		fontSize: '10px',
@@ -141,6 +192,10 @@ const useStyles = createUseStyles({
 		position: 'relative',
 		top: '32px',
 		transition: 'all .6s ease-in-out',
+
+		'@media screen and (max-width: 600px)': {
+			margin: '2px'
+		},
 	},
 	textHoverText_hover: {
 		fontSize: '10px',
@@ -149,6 +204,7 @@ const useStyles = createUseStyles({
 		position: 'relative',
 		top: '0',
 		transition: 'all .6s ease-in-out',
+		width: '80%'
 
 	}
 });
@@ -158,6 +214,7 @@ const ExampleMarketPageA = () => {
 	const [expandedBox, setExpandedBox] = React.useState<number | false>(false);
 
 	const [activeBox, setActiveBox] = React.useState<number>(0);
+	const isMobile = deviceTypeIs(DeviceType.Mobile);
 
 	const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
 	const lightMode = theme === Theme.Light;
@@ -279,16 +336,16 @@ const ExampleMarketPageA = () => {
 				{renderFirstSubBlocks()}
 			</div>
 			<div className={classes.cubes_container}>
-				{renderItems(12, 15)}
+				{isMobile ? renderItems(9, 11) : renderItems(12, 15)}
 			</div>
 			<div className={classes.cubes_container}>
-				{renderItems(8, 11)}
+				{isMobile ? renderItems(6, 8) : renderItems(8, 11)}
 			</div>
 			<div className={classes.cubes_container}>
-				{renderItems(4, 7)}
+				{isMobile ? renderItems(3, 5) : renderItems(4, 7)}
 			</div>
 			<div className={classes.cubes_container}>
-				{renderItems(0, 3)}
+				{isMobile ? renderItems(0, 2) : renderItems(0, 3)}
 			</div>
 		</div>
 	)

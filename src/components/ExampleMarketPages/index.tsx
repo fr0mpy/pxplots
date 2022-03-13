@@ -90,9 +90,10 @@ const useStyles = createUseStyles({
 			backgroundColor: 'transparent'
 		},
 
-		'@media screen and (max-width: 1200px)': {
+		'@media screen and (max-width: 1024px)': {
 			left: '50%',
 			position: 'absolute',
+			height: '100%',
 			top: '50%',
 			transform: 'translate(-50%, -50%)',
 			textAlign: 'center',
@@ -119,6 +120,18 @@ const useStyles = createUseStyles({
 				transition: 'fill .4s ease-in-out'
 
 			},
+		},
+
+		'@media screen and (max-width: 600px)': {
+			'& .flickity-prev-next-button': {
+				top: '87.5%'
+			},
+		},
+
+		'@media screen and (max-width: 380px)': {
+			'& .flickity-prev-next-button': {
+				top: '86%'
+			},
 		}
 	},
 	flickity_slider_night: {
@@ -132,10 +145,11 @@ const useStyles = createUseStyles({
 			backgroundColor: 'transparent'
 		},
 
-		'@media screen and (max-width: 1200px)': {
+		'@media screen and (max-width: 1024px)': {
 			left: '50%',
 			position: 'absolute',
 			top: '50%',
+			height: '100%',
 			transform: 'translate(-50%, -50%)',
 			textAlign: 'center',
 
@@ -147,30 +161,49 @@ const useStyles = createUseStyles({
 				display: 'none !important'
 			},
 
-
 			'& .flickity-prev-next-button': {
 				height: '58px',
 				width: '58px',
 				borderRadius: '6px',
 				backgroundColor: 'black',
 				border: 'solid 5px #5141f1',
-				transition: 'background-color .4s ease-in-out'
+				transition: 'background-color .4s ease-in-out',
+				boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px'
 			},
 			'& .flickity-button-icon': {
 				fill: 'white',
 				transition: 'fill .4s ease-in-out'
 
 			},
+		},
+
+		'@media screen and (max-width: 600px)': {
+			'& .flickity-prev-next-button': {
+
+				top: '87.5%'
+			},
+		},
+		'@media screen and (max-width: 380px)': {
+			'& .flickity-prev-next-button': {
+				top: '86%'
+			},
 		}
 	},
 	footer: {
+		alignItems: 'center',
 		backgroundColor: 'white',
-		bottom: 0,
+		// bottom: 0,
 		color: 'black',
+		display: 'flex',
 		height: '70px',
-		position: 'fixed',
+		justifyContent: 'center',
+		position: 'absolute',
+		bottom: 0,
 		transition: 'all .4s linear',
 		width: '100%',
+		'@media screen and (max-width: 600px)': {
+			height: '55px'
+		},
 	},
 	footer_night: {
 		backgroundColor: 'black',

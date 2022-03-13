@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux';
 import { setTheme } from '../../Redux/slices/themeSlice';
 import { deviceTypeIs } from '../../helpers/devices';
 import { DeviceType } from '../../enums/devices';
+import throttle from '../../helpers/throttle';
 
 const useStyles = createUseStyles({
 	container: {
@@ -19,6 +20,8 @@ const useStyles = createUseStyles({
 
 const Wrapper = () => {
 	const [modalOpen, setModalOpen] = React.useState<boolean>(false);
+	const [ignored, force] = React.useReducer(x => x + 1, 0);
+
 	const classes = useStyles();
 	const dispatch = useDispatch();
 
@@ -26,9 +29,25 @@ const Wrapper = () => {
 		const storedTheme = getItemFromLocalStorage('theme');
 
 		if (storedTheme) {
-			dispatch(setTheme(storedTheme))
+			dispatch(setTheme(storedTheme));
 		}
+
+		window.addEventListener('resize', onResize);
+
+		return window.removeEventListener('resize', onResize);
 	}, [])
+
+	React.useEffect(() => {
+		window.addEventListener('resize', onResize);
+		return () => window.removeEventListener('resize', onResize);
+	}, [])
+
+	const onResize = () => {
+		console.log('resize')
+		throttle(forceUpdate, 500)
+	}
+
+	const forceUpdate = () => force();
 
 	const openModal = () => setModalOpen(true);
 

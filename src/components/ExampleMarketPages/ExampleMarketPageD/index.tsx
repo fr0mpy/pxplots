@@ -22,13 +22,27 @@ const useStyles = createUseStyles({
 			opacity: 1
 		},
 
-		'@media screen and (max-width: 1200px)': {
+		'@media screen and (max-width: 1024px)': {
 			border: 'solid 5px #5141f1',
 			borderRadius: '8px',
-			height: '80%',
 			opacity: 1,
 			overflowY: 'auto',
-			width: '80vw'
+			width: '80vw',
+			height: '72%',
+			left: '50%',
+			position: 'absolute',
+			top: '50%',
+			transform: 'translate(-50%, -50%)'
+		},
+
+		'@media screen and (max-width: 600px)': {
+			height: '68%',
+			top: '48%',
+			width: '88%'
+		},
+
+		'@media screen and (max-width: 380px)': {
+			height: '62.5%'
 		}
 	},
 	section: {

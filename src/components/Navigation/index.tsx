@@ -22,6 +22,8 @@ const useStyles = createUseStyles({
 		borderBottomRightRadius: '8px',
 		boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px',
 		boxSizing: 'border-box',
+		display: 'flex',
+		flexFlow: 'column',
 		fontFamily: 'Roboto Slab, serif',
 		height: '100%',
 		padding: '16px',
@@ -32,60 +34,29 @@ const useStyles = createUseStyles({
 		'@media screen and (max-width: 1200px)': {
 			border: 'solid 5px #5141f1',
 			borderRadius: '8px',
+			height: '72%',
 			lineHeight: 'normal',
 			width: '80%',
-			height: '80%'
+			left: '50%',
+			position: 'absolute',
+			top: '50%',
+			transform: 'translate(-50%, -50%)'
+		},
+
+		'@media screen and (max-width: 600px)': {
+			height: '68%',
+			top: '48%',
+			width: '88%'
+		},
+		'@media screen and (max-width: 380px)': {
+			height: '62.5%'
 		}
 	},
 	root_night_mode: {
 		backgroundColor: 'black',
 		color: 'white',
-		transition: 'background-color .4s linear'
-	},
-	button_container: {
-		alignItems: 'center',
-		display: 'flex',
-		flexFlow: 'row',
-		height: 'fit-content',
-		marginBottom: '30px',
-		justifyContent: 'space-between'
-	},
-	button: {
-		backgroundColor: '#5141f1',
-		border: 'solid 4px black',
-		borderRadius: '5px',
-		color: 'white',
-		cursor: 'pointer',
-		fontFamily: 'Roboto Slab, serif',
-		fontSize: '18px',
-		minHeight: '48px',
-		outline: 'solid 4px white',
-		transition: 'border .4s linear, outline .4s linear, background-color .2s linear',
-		width: '180px',
-		'&:hover': {
-			backgroundColor: '#3effdb',
-			color: 'black',
-			transition: 'background-color .2s linear',
-		},
-		'&:active': {
-			backgroundColor: '#fffd00',
-			boxShadow: 'inset 0 0 16px #000000',
-			transition: 'background-color .2s linear, box-shadow .05s linear',
-		}
-	},
-	mint_button: {
-		border: 'solid 4px black',
-		backgroundColor: '#3effdb',
-		color: 'black',
-		'&:hover': {
-			color: 'white',
-			backgroundColor: '#d362d2',
-		}
-	},
-	button_night_mode: {
-		border: 'solid 4px white',
-		outline: 'solid 4px black',
-		transition: 'border .4s linear, outline .4s linear',
+		transition: 'background-color .4s linear',
+
 	},
 	text: {
 		color: 'black',
@@ -107,10 +78,19 @@ const useStyles = createUseStyles({
 	nav_title: {
 		margin: '0',
 		fontSize: '28px',
+
+		'@media screen and (max-width: 600px)': {
+			fontSize: '24px'
+		}
 	},
 	nav_caption: {
 		margin: '8px 0 26px 0',
 		fontSize: '18px',
+
+		'@media screen and (max-width: 600px)': {
+			fontSize: '14px',
+			marginBottom: '18px'
+		}
 	},
 	night_mode_text: {
 		color: 'white',
@@ -127,6 +107,10 @@ const useStyles = createUseStyles({
 
 		'&:hover': {
 			borderBottom: 'solid 3px #5141f1'
+		},
+
+		'@media screen and (max-width: 380px)': {
+			fontSize: '18px'
 		}
 	},
 	heading_button_active: {
@@ -137,10 +121,9 @@ const useStyles = createUseStyles({
 		}
 	},
 	section_container: {
-		'@media screen and (max-width: 1200px)': {
-			height: '78%',
-			overflow: 'auto',
-		},
+		flex: 1,
+		height: '50%',
+		overflowY: 'auto',
 		'&::-webkit-scrollbar': {
 			width: '0.4em',
 			height: '10px !important'
@@ -155,6 +138,16 @@ const useStyles = createUseStyles({
 			marginLeft: '10px',
 			transition: 'border .4s linear',
 		},
+		'@media screen and (max-width: 1200px)': {
+			height: '60%',
+			overflowY: 'auto',
+		},
+
+		'@media screen and (max-width: 600px)': {
+			height: '50%',
+			overflowY: 'auto',
+		},
+
 	},
 	section: {
 		// height: '55vh',
@@ -212,6 +205,7 @@ const Navigation = () => {
 
 	React.useEffect(() => {
 		if (sectionRef.current) {
+			console.log('ref', sectionRef.current.scrollTop)
 			sectionRef.current.scrollTop = 0;
 		}
 	}, [section])
@@ -245,24 +239,32 @@ const Navigation = () => {
 		})
 	}
 
+
+	const welcome = () => {
+		const isMobile = deviceTypeIs(DeviceType.Mobile);
+		if (isMobile) {
+			return 'Welcome To pxplots! 🏝️'
+		} else {
+			return '🏝️ Welcome To pxplots! 🏝️'
+		}
+	}
 	return (
 		<div className={`${classes.root} ${lightMode ? '' : classes.root_night_mode}`}>
 			{isDesktop ? <Header /> : null}
 			<div>
-				<p className={`${classes.text} ${classes.nav_title} ${lightMode ? '' : classes.night_mode_text}`}>🏝️ Welcome To pxplots! 🏝️</p>
+				<p className={`${classes.text} ${classes.nav_title} ${lightMode ? '' : classes.night_mode_text}`}>
+					{welcome()}
+				</p>
 				<p className={`${classes.text} ${classes.nav_caption} ${lightMode ? '' : classes.night_mode_text}`}>
-					10,000 sm0l plots of land, living on the Ethereum blockchain 🧱⛓️
+					10,000 sm0l plots, living on the Ethereum blockchain 🧱⛓️
 				</p>
 			</div>
 			<div className={`${classes.dotted_line} ${lightMode ? '' : classes.dotted_line_night_mode}`} />
 			<div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
 				{renderHeadings()}
 			</div>
-			<div className={classes.section_container}>
-				<div
-					className={`${classes.section} ${lightMode ? '' : classes.section_night_mode}`}
-					ref={sectionRef}
-				>
+			<div className={classes.section_container} ref={sectionRef}>
+				<div className={`${classes.section} ${lightMode ? '' : classes.section_night_mode}`}>
 					{renderSection()}
 				</div>
 			</div>
@@ -273,7 +275,7 @@ const Navigation = () => {
 					</div>
 					: null
 			}
-		</div>
+		</div >
 	);
 };
 
