@@ -115,6 +115,8 @@ const Header = () => {
 	const sectionRef = React.useRef<HTMLDivElement>(null);
 	const dispatch = useDispatch();
 	const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
+	const { modalOpen } = useSelector((state: any): any => state.modal)
+
 	const headings = ['About', 'RoadMap', 'Team', 'FAQ'];
 	const lightMode = theme === Theme.Light;
 
@@ -151,8 +153,12 @@ const Header = () => {
                         ${walletConnected ? classes.mint_button : ''}
                         ${lightMode ? '' : classes.button_night_mode}
                     `}
-						onClick={() => walletConnected ? dispatch(setModalOpen(true)) : connectWallet()}>
-						{walletConnected ? 'Go To Mint' : 'Connect Wallet'}
+						onClick={() => walletConnected ? dispatch(setModalOpen(modalOpen ? false : true)) : connectWallet()}>
+						{walletConnected
+							? modalOpen
+								? 'Go Back'
+								: 'Go To Mint'
+							: 'Connect Wallet'}
 					</button>
 					<div className={classes.connected_text_container}>
 						<p

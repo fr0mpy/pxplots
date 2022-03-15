@@ -15,6 +15,7 @@ const useStyles = createUseStyles({
 		textDecoration: 'none',
 		'&:hover': {
 			color: '#3effdb',
+			opacity: .75
 		}
 	},
 	link_night: {
@@ -33,7 +34,7 @@ const Team = () => {
 				Hello frens <span style={{ fontSize: '20px' }}>🖖</span>
 			</p>
 			<p className={classes.text}>
-				For now, it's just me. My names <a href={'https://twitter.com/frompy_'} className={`${classes.link} ${lightMode ? classes.link_night : ''}`}> Frompy </a>and I'm a web developer and kind of an artist? Idk. What my code produces is my art,
+				For now, it's just me. My names <a href={'https://twitter.com/frompy_'} target={'blank'} className={`${classes.link} ${lightMode ? classes.link_night : ''}`}> Frompy </a>and I'm a web developer and kind of an artist? Idk. What my code produces is my art,
 				but you could say that about anything really. So maybe i'm not, who knows?
 			</p>
 			<p className={classes.text}>
@@ -49,7 +50,7 @@ const Team = () => {
 				At this point the world wide web was just a year older than I was. And man, have things changed in that time. Now more than ever.
 			</p>
 			<p className={classes.text}>
-				About a year ago I read an <a href={'https://kk.org/thetechnium/1000-true-fans/'} className={`${classes.link} ${lightMode ? classes.link_night : ''}`}> article </a> referencing Kevin Kelly's (also my grandads name, oddly) idea of "A Thousand True Fans".
+				About a year ago I read an <a href={'https://kk.org/thetechnium/1000-true-fans/'} target={'blank'} className={`${classes.link} ${lightMode ? classes.link_night : ''}`}> article </a> referencing Kevin Kelly's (also my grandads name, oddly) idea of "A Thousand True Fans".
 				And since then, I've not been able to stop thinking about it.
 			</p>
 			<p className={classes.text}>

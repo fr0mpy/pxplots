@@ -13,13 +13,14 @@ const useStyles = createUseStyles({
 
 	},
 	container: {
+		backgroundColor: 'white',
+		color: 'black',
 		display: 'flex',
 		flexFlow: 'column',
 		fontFamily: 'Roboto Slab, serif',
 		padding: '12px',
 		opacity: 0.25,
-		backgroundColor: 'black',
-		transition: 'opacity .2s ease-in-out',
+		transition: 'all .2s ease-in-out',
 
 		'&:hover': {
 			transition: 'opacity .2s ease-in-out',
@@ -51,11 +52,10 @@ const useStyles = createUseStyles({
 		}
 
 	},
-	header_text: {
+	container_night: {
+		backgroundColor: 'black',
 		color: 'white',
-		textAlign: 'center',
-		margin: '6px 0',
-
+		transition: 'all .2s ease-in-out',
 	},
 	first_blocks_container: {
 		height: '100%',
@@ -90,7 +90,7 @@ const useStyles = createUseStyles({
 		},
 	},
 	text: {
-		color: 'white',
+		color: 'inherit',
 		height: '100%',
 		textAlign: 'center',
 		fontSize: '12px',
@@ -98,7 +98,7 @@ const useStyles = createUseStyles({
 	},
 	small_text: {
 		fontSize: '10px',
-		color: 'white',
+		color: 'inherit',
 		margin: '8px 20px',
 	},
 	center_card: {
@@ -186,6 +186,7 @@ const useStyles = createUseStyles({
 
 	},
 	textHoverText: {
+		color: 'inherit',
 		fontSize: '10px',
 		margin: '12px',
 		opacity: 0,
@@ -292,7 +293,7 @@ const ExampleMarketPageA = () => {
 	}
 
 	return (
-		<div className={classes.container}>
+		<div className={`${classes.container} ${lightMode ? '' : classes.container_night}`}>
 			<p className={classes.text} style={{ margin: '4px' }}>
 				Create your own gallery.
 			</p>

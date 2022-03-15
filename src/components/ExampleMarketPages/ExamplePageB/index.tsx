@@ -283,7 +283,8 @@ const ExampleMarketPageB = () => {
 		groupCells: true,
 
 	}
-
+	const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
+	const lightMode = theme === Theme.Light;
 	const isDesktop = deviceTypeIs(DeviceType.Desktop);
 	const isMobile = deviceTypeIs(DeviceType.Mobile);
 	const isTablet = deviceTypeIs(DeviceType.Tablet);
@@ -318,9 +319,15 @@ const ExampleMarketPageB = () => {
 						</p>
 					</div>
 				</div>
-				<div className={classes.slide_container} style={{ backgroundColor: '#14eb9c', display: 'flex', flexFlow: 'row' }} >
+				<div
+					className={classes.slide_container}
+					style={{ backgroundColor: '#14eb9c', display: 'flex', flexFlow: 'row' }}
+				>
 					<div className={classes.half_container}>
-						<div className={classes.white_block} />
+						<div
+							className={classes.white_block}
+							style={{ backgroundColor: lightMode ? 'white' : 'black' }}
+						/>
 						{!isDesktop
 							? <>
 								<div className={classes.white_block} />
@@ -332,22 +339,64 @@ const ExampleMarketPageB = () => {
 							: null}
 
 					</div>
-					<div className={classes.half_container} style={{ backgroundColor: 'white' }}>
-						<p className={classes.half_container_header_text}>
+					<div
+						className={classes.half_container}
+						style={{
+							backgroundColor: lightMode ? 'white' : 'black',
+							transition: 'background-color .4s ease-in'
+						}}
+					>
+						<p
+							className={classes.half_container_header_text}
+							style={{
+								color: lightMode ? 'black' : 'white',
+								transition: 'color .4s ease-in'
+							}}
+						>
 							Hello World
 						</p>
 						<div className={classes.half_container_center}>
-							<p className={classes.half_container_title}>
+							<p
+								className={classes.half_container_title}
+								style={{
+									color: lightMode ? 'black' : 'white',
+									transition: 'color .4s ease-in'
+								}}
+							>
 								This is one of my NFTs
 							</p>
-							<p className={classes.half_container_text}>
+							<p
+								className={classes.half_container_text}
+								style={{
+									color: lightMode ? 'black' : 'white',
+									transition: 'color .4s ease-in'
+								}}
+							>
 								Who says your page needs to scroll vertically? Maybe you want it to move horizontally.
 							</p>
 						</div>
 						<div className={classes.circles_container}>
-							<span className={classes.circle} />
-							<span className={classes.circle} />
-							<span className={classes.circle} />
+							<span
+								className={classes.circle}
+								style={{
+									backgroundColor: lightMode ? 'black' : 'white',
+									transition: 'background-color .4s ease-in'
+								}}
+							/>
+							<span
+								className={classes.circle}
+								style={{
+									backgroundColor: lightMode ? 'black' : 'white',
+									transition: 'background-color .4s ease-in'
+								}}
+							/>
+							<span
+								className={classes.circle}
+								style={{
+									backgroundColor: lightMode ? 'black' : 'white',
+									transition: 'background-color .4s ease-in'
+								}}
+							/>
 						</div>
 					</div>
 				</div>
@@ -355,21 +404,53 @@ const ExampleMarketPageB = () => {
 					<p className={classes.cream_header}>
 						Maybe a background image here?
 					</p>
-					<div className={classes.cream_center_container}>
-						<p className={classes.cream_text_1}>
+					<div
+						className={classes.cream_center_container}
+						style={{
+							backgroundColor: lightMode ? 'white' : 'black',
+							boxShadow: lightMode ? 'rgb(0 0 0) 12px 12px 0px 0px' : 'rgb(255 255 255) 12px 12px 0px 0px',
+							transition: 'all .4s ease-in'
+						}}
+					>
+						<p
+							className={classes.cream_text_1}
+							style={{
+								color: lightMode ? 'black' : 'white',
+								transition: 'color .4s ease-in'
+							}}
+						>
 							Some sm0l text here
 						</p>
-						<p className={classes.cream_text_2}>
+						<p
+							className={classes.cream_text_2}
+							style={{
+								color: lightMode ? 'black' : 'white',
+								transition: 'color .4s ease-in'
+							}}
+						>
 							And Large Text Here! Hello!
 						</p>
-						<p className={classes.cream_text_3}>
+						<p
+							className={classes.cream_text_3}
+							style={{
+								color: lightMode ? 'black' : 'white',
+								transition: 'color .4s ease-in'
+							}}
+						>
 							By the way, there's 4 meme easter eggs hidden around this site.
 							Find all of them and send them to the twitter to get a spot on the free mint whitelist.
 						</p>
 					</div>
 				</div>
 
-				<div className={classes.slide_container} style={{ backgroundColor: '#12e7cf', display: 'flex', flexFlow: 'row' }} >
+				<div
+					className={classes.slide_container}
+					style={{
+						backgroundColor: '#12e7cf',
+						display: 'flex',
+						flexFlow: 'row'
+					}}
+				>
 					<div className={classes.half_container}>
 						<p
 							style={{
@@ -380,12 +461,29 @@ const ExampleMarketPageB = () => {
 							However you want your space to look. It's yours.
 						</p>
 					</div>
-					<div className={classes.half_container} style={{ justifyContent: 'center', position: 'relative' }} >
-						<div style={{ height: '150px', width: '75px', backgroundColor: 'white', position: 'absolute' }} />
-						<div style={{ height: '125px', width: '125px', borderRadius: '100%', backgroundColor: 'black', marginLeft: '16px' }} />
+					<div
+						className={classes.half_container}
+						style={{ justifyContent: 'center', position: 'relative' }}
+					>
+						<div
+							style={{
+								height: '150px',
+								width: '75px',
+								backgroundColor: 'white',
+								position: 'absolute'
+							}}
+						/>
+						<div
+							style={{
+								height: '125px',
+								width: '125px',
+								borderRadius: '100%',
+								backgroundColor: 'black',
+								marginLeft: '16px'
+							}}
+						/>
 					</div>
 				</div>
-
 			</Flickity>
 		</div>
 	);

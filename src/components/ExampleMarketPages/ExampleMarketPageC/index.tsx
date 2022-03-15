@@ -172,6 +172,10 @@ type xAxis = XAxis.Left | XAxis.Right;
 const ExampleMarketPageC = () => {
 	const classes = useStyles();
 	const [hoveredRect, setHoveredRect] = React.useState<IHoveredRect | boolean>(false);
+	const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
+	const lightMode = theme === Theme.Light;
+	const isDesktop = deviceTypeIs(DeviceType.Desktop);
+	const isMobile = deviceTypeIs(DeviceType.Mobile);
 
 	const rectsLeft = [
 		{ height: 105, bgColour: '#f187fa' },
@@ -204,8 +208,6 @@ const ExampleMarketPageC = () => {
 		{ height: 155, bgColour: '#14eb9c' },
 	]
 
-	const isDesktop = deviceTypeIs(DeviceType.Desktop);
-	const isMobile = deviceTypeIs(DeviceType.Mobile);
 
 	const createRect = (
 		height: number,
@@ -231,7 +233,6 @@ const ExampleMarketPageC = () => {
 			>
 
 				{
-					// active ?
 					<>
 						<div
 							style={{
@@ -250,7 +251,6 @@ const ExampleMarketPageC = () => {
 							<p className={`${classes.text} ${active ? classes.text_hovered : ''}`}>{tg ? '' : '0.3ETH'}</p>
 						</div>
 					</>
-					// : null
 				}
 			</div>
 		)
@@ -268,10 +268,23 @@ const ExampleMarketPageC = () => {
 			<div className={classes.circles_container}>
 				{Array.from(Array(3)).map((_, i) => {
 					return i === 2 ?
-						<a href={'https://i.kym-cdn.com/entries/icons/mobile/000/012/748/circle.jpg'} className={classes.circle}>
-							<span className={classes.circle} />
+						<a href={'https://i.kym-cdn.com/entries/icons/mobile/000/012/748/circle.jpg'} className={classes.circle}
+							style={{
+								backgroundColor: lightMode ? 'black' : 'white',
+								transition: 'background-color .4s ease-in'
+							}}
+						>
+							<span
+								className={classes.circle}
+							/>
 						</a>
-						: <span className={classes.circle} />
+						: <span
+							className={classes.circle}
+							style={{
+								backgroundColor: lightMode ? 'black' : 'white',
+								transition: 'background-color .4s ease-in'
+							}}
+						/>
 				})}
 			</div>
 		)
@@ -282,20 +295,22 @@ const ExampleMarketPageC = () => {
 			{isMobile
 				? <div style={{
 					height: '64px',
-					backgroundColor: 'white',
+					backgroundColor: lightMode ? 'white' : 'black',
 					boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px',
 					width: '100%',
 					position: 'fixed',
 					top: 0,
-					zIndex: 2
-				}}> <div
-					style={{
-						display: 'flex',
-						alignItems: 'center',
-						height: '100%',
-						justifyContent: 'space-around'
-					}}
-				>
+					zIndex: 2,
+					transition: 'background-color .4s ease-in'
+				}}>
+					<div
+						style={{
+							display: 'flex',
+							alignItems: 'center',
+							height: '100%',
+							justifyContent: 'space-around'
+						}}
+					>
 						<div className={classes.square} />
 						<div className={classes.square} />
 						<div className={classes.square} />
@@ -304,28 +319,69 @@ const ExampleMarketPageC = () => {
 				</div>
 				: <>
 					{renderCircles()}
-					<div className={classes.nav}>
-						<p className={classes.nav_header}>
+					<div
+						className={classes.nav}
+						style={{
+							backgroundColor: lightMode ? 'white' : 'black',
+							transition: 'background-color .4s ease-in'
+						}}
+					>
+						<p
+							className={classes.nav_header}
+							style={{
+								color: lightMode ? 'black' : 'white',
+								transition: 'background-color .4s ease-in'
+							}}
+						>
 							Your Page
 						</p>
-						<p className={classes.nav_text}>
+						<p className={classes.nav_text}
+							style={{
+								color: lightMode ? 'black' : 'white',
+								transition: 'color .4s ease-in'
+							}}
+						>
 							Maybe you prefer less text and more images
 						</p>
-						<p className={classes.nav_text}>
+						<p
+							className={classes.nav_text}
+							style={{
+								color: lightMode ? 'black' : 'white',
+								transition: 'color .4s ease-in'
+							}}
+						>
 							You can see where we've going with this. There will be many options
 						</p>
-						<div className={classes.square} />
+						<div
+							className={classes.square}
+							style={{
+								backgroundColor: lightMode ? 'black' : 'white',
+								transition: 'background-color .4s ease-in'
+							}}
+						/>
 						{!isDesktop
 							? <>
-								<div className={classes.square} />
-								<div className={classes.square} />
+								<div
+									className={classes.square}
+									style={{
+										backgroundColor: lightMode ? 'black' : 'white',
+										transition: 'background-color .4s ease-in'
+									}}
+								/>
+								<div
+									className={classes.square}
+									style={{
+										backgroundColor: lightMode ? 'black' : 'white',
+										transition: 'background-color .4s ease-in'
+									}}
+								/>
 							</>
 							: null}
 
 					</div>
 				</>
 			}
-			<div className={classes.right_container}>
+			<div className={classes.right_container} >
 				{isMobile
 					? null
 					: <div style={{ width: '115px' }} />}

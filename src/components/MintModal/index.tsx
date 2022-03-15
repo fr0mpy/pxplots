@@ -5,44 +5,142 @@ import { Theme } from '../../enums/themes';
 import { IThemeState } from '../../Redux/slices/themeSlice';
 
 const useStyles = createUseStyles({
-    overlay: {
-        background: 'rgba(0, 0, 0, 0.75)',
-        height: '100vh',
-        width: '100vw',
-        position: 'absolute',
-        animation: 'fade-in 2s',
-        transition: 'background .4s linear',
-    },
-    modal_container: {
-        fontFamily: 'Roboto Slab, serif',
-        padding: '24px 32px 32px 32px',
-        background: 'rgb(255, 255, 255, 1)',
-        border: 'solid 4px black',
-        borderRadius: '8px',
-        height: '400px',
-        width: '400px',
-        position: 'absolute',
-        left: '50%',
-        top: '42.5%',
-        transform: 'translate(-50%, -50%)',
-        textAlign: 'center',
-        // '@media screen and (max-width: 600px)': {
-        //     width: '75%'
-        // }
-    },
+	overlay: {
+		// background: 'rgba(0, 0, 0, 0.75)',
+		height: '100vh',
+		width: '100vw',
+		position: 'absolute',
+		animation: 'fade-in 2s',
+		transition: 'background .4s linear',
+		left: '50%',
+		top: '50%',
+		transform: 'translate(-50%, -50%)',
+
+		'@media screen and (max-width: 600px)': {
+			top: '52.5%'
+		}
+	},
+	modal_container: {
+		border: 'solid 4px #3effdb',
+		padding: '24px 32px 32px 32px',
+		background: 'rgb(255, 255, 255, 1)',
+		boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px',
+		borderRadius: '8px',
+		display: 'flex',
+		flexFlow: 'column',
+		fontFamily: 'Roboto Slab, serif',
+		height: '60%',
+		justifyContent: 'center',
+		width: '40%',
+		position: 'absolute',
+		left: '50%',
+		lineHeight: 'normal',
+		top: '50%',
+		transform: 'translate(-50%, -50%)',
+		textAlign: 'center',
+
+
+		'@media screen and (max-width: 600px)': {
+			height: '68%',
+			padding: '16px',
+			width: '80%'
+		},
+
+		'@media screen and (max-width: 280px)': {
+			height: '68%',
+			padding: 0,
+			width: '88%'
+		}
+	},
+	modal_container_night: {
+		backgroundColor: 'black',
+		color: 'white'
+	},
+	button: {
+		backgroundColor: '#5141f1',
+		border: 'solid 4px black',
+		borderRadius: '5px',
+		color: 'white',
+		cursor: 'pointer',
+		fontFamily: 'Roboto Slab, serif',
+		fontSize: '18px',
+		minHeight: '48px',
+		outline: 'solid 4px white',
+		transition: 'border .4s linear, outline .4s linear, background-color .2s linear',
+		width: '220px',
+		padding: '8px',
+		// justifySelf: 'flex-end',
+		margin: '65px auto 0 auto',
+		'&:hover': {
+			backgroundColor: '#3effdb',
+			color: 'black',
+			transition: 'background-color .2s linear',
+		},
+		'&:active': {
+			backgroundColor: '#fffd00',
+			boxShadow: 'inset 0 0 16px #000000',
+			transition: 'background-color .2s linear, box-shadow .05s linear',
+		}
+	},
+	mint_button: {
+		border: 'solid 4px black',
+		backgroundColor: '#3effdb',
+		color: 'black',
+		'&:hover': {
+			color: 'white',
+			backgroundColor: '#d362d2',
+		}
+	},
+	button_night_mode: {
+		border: 'solid 4px white',
+		outline: 'solid 4px black',
+		transition: 'border .4s linear, outline .4s linear',
+	},
+	link: {
+		color: '#3effdb',
+		fontWeight: 900,
+		cursor: 'pointer !important',
+		textDecoration: 'none',
+		'&:hover': {
+			color: '#3effdb',
+			opacity: .75
+		}
+	},
+	link_night: {
+		color: '#5141f1',
+	}
 });
 
 const MintModal = () => {
-    const classes = useStyles();
-    const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
-    // const lightMode = theme === Theme.Light;
+	const classes = useStyles();
+	const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
+	const lightMode = theme === Theme.Light;
 
-    return (
-        <div className={classes.overlay}>
-            <div className={classes.modal_container}>x</div>
+	return (
+		<div className={classes.overlay}>
+			<div className={`${classes.modal_container} ${lightMode ? '' : classes.modal_container_night}`}>
+				<p style={{ fontSize: '32px', margin: '12px 0 46px' }}>Mint Coming Soon... </p>
 
-        </div>
-    )
+				<div>
+				</div>
+				{/* <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', flexFlow: 'column' }}> */}
+				<p style={{ fontSize: '20px', margin: '12px 0' }}>
+					In the meantime: You have found your first easter egg!
+				</p>
+				<p style={{ fontSize: '20px', margin: '12px 0' }}>
+					However,
+				</p>
+				<p style={{ fontSize: '20px', margin: '12px 0' }}>
+					You have also just lost <a href={'https://knowyourmeme.com/memes/the-game'} target={'blank'} className={`${classes.link} ${lightMode ? classes.link_night : ''}`}> The Game</a>.
+				</p>
+				{/* </div> */}
+				{/* <button className={classes.button}>
+					Minting Will Begin End Of June
+				</button> */}
+
+			</div>
+		</div>
+	)
 }
 
 export default MintModal;

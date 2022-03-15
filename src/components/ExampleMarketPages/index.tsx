@@ -13,6 +13,7 @@ import ExampleMarketPageB from './ExamplePageB';
 import Navigation from '../Navigation';
 import Header from '../Header';
 import SocialLinks from '../SocialLinks';
+import MintModal from '../MintModal';
 
 const useStyles = createUseStyles({
 	container: {
@@ -111,14 +112,13 @@ const useStyles = createUseStyles({
 				height: '58px',
 				width: '58px',
 				borderRadius: '6px',
-				backgroundColor: 'white',
-				border: 'solid 5px #5141f1',
-				transition: 'background-color .4s ease-in-out'
+				backgroundColor: '#5141f1',
+				border: 'solid 5px black',
+				transition: 'all .4s ease-in-out'
 			},
 			'& .flickity-button-icon': {
-				fill: 'black',
-				transition: 'fill .4s ease-in-out'
-
+				fill: 'white',
+				transition: 'all .4s ease-in-out'
 			},
 		},
 
@@ -165,21 +165,19 @@ const useStyles = createUseStyles({
 				height: '58px',
 				width: '58px',
 				borderRadius: '6px',
-				backgroundColor: 'black',
-				border: 'solid 5px #5141f1',
-				transition: 'background-color .4s ease-in-out',
+				backgroundColor: '#5141f1',
+				border: 'solid 5px white',
+				transition: 'all .4s ease-in-out',
 				boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px'
 			},
 			'& .flickity-button-icon': {
 				fill: 'white',
-				transition: 'fill .4s ease-in-out'
-
+				transition: 'all .4s ease-in-out'
 			},
 		},
 
 		'@media screen and (max-width: 600px)': {
 			'& .flickity-prev-next-button': {
-
 				top: '87.5%'
 			},
 		},
@@ -192,7 +190,7 @@ const useStyles = createUseStyles({
 	footer: {
 		alignItems: 'center',
 		backgroundColor: 'white',
-		// bottom: 0,
+		boxShadow: 'rgb(0 0 0) 8px -12px 34px 0px',
 		color: 'black',
 		display: 'flex',
 		height: '70px',
@@ -201,6 +199,7 @@ const useStyles = createUseStyles({
 		bottom: 0,
 		transition: 'all .4s linear',
 		width: '100%',
+
 		'@media screen and (max-width: 600px)': {
 			height: '55px'
 		},
@@ -213,11 +212,16 @@ const useStyles = createUseStyles({
 
 });
 
-const ExampleMarketPages = () => {
+interface IProps {
+	modalOpen: boolean;
+}
+
+const ExampleMarketPages = ({ modalOpen }: IProps) => {
 	const classes = useStyles();
 	const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
 	const lightMode = theme === Theme.Light;
 	const isDesktop = deviceTypeIs(DeviceType.Desktop);
+	const flickityRef = React.useRef<HTMLDivElement | null>(null);
 
 	const flickityOptions = {
 		contain: true,
@@ -260,30 +264,32 @@ const ExampleMarketPages = () => {
 	} else return (
 		<>
 			<Header />
-			<Flickity
-				className={`carousel ${lightMode ? classes.flickity_slider : classes.flickity_slider_night}`}
-				elementType={'div'}
-				options={flickityOptions}
-				disableImagesLoaded={false}
-				reloadOnUpdate
-
-			>
-				<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
-					<Navigation />
-				</div>
-				<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
-					<ExampleMarketPageA />
-				</div>
-				<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
-					<ExampleMarketPageB />
-				</div>
-				<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
-					<ExampleMarketPageC />
-				</div>
-				<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
-					<ExampleMarketPageD />
-				</div>
-			</Flickity>
+			{modalOpen
+				? <MintModal />
+				: <Flickity
+					className={`carousel ${lightMode ? classes.flickity_slider : classes.flickity_slider_night}`}
+					elementType={'div'}
+					options={flickityOptions}
+					disableImagesLoaded={false}
+					reloadOnUpdate
+					flickityRef={flickityRef as any}
+				>
+					<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
+						<Navigation />
+					</div>
+					<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
+						<ExampleMarketPageA />
+					</div>
+					<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
+						<ExampleMarketPageB />
+					</div>
+					<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
+						<ExampleMarketPageC />
+					</div>
+					<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
+						<ExampleMarketPageD />
+					</div>
+				</Flickity>}
 			{
 				!isDesktop
 					? <div className={`${classes.footer} ${lightMode ? '' : classes.footer_night}`} >
