@@ -37,7 +37,7 @@ const useStyles = createUseStyles({
 		},
 
 		'@media screen and (max-width: 380px)': {
-			height: '62.5%'
+			height: '58%'
 		}
 	},
 	text: {

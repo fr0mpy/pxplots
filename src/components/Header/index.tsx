@@ -19,7 +19,7 @@ const useStyles = createUseStyles({
 		'@media screen and (max-width: 1024px)': {
 			boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px',
 			lineHeight: 'normal',
-			padding: '10px 16px 6px',
+			padding: '4px 16px 2px',
 			position: 'absolute',
 			width: '100%',
 
@@ -48,11 +48,10 @@ const useStyles = createUseStyles({
 		color: 'white',
 		cursor: 'pointer',
 		fontFamily: 'Roboto Slab, serif',
-		fontSize: '18px',
-		minHeight: '48px',
-		outline: 'solid 4px white',
+		fontSize: '16px',
+		minHeight: '42px',
 		transition: 'border .4s linear, outline .4s linear, background-color .2s linear',
-		width: '160px',
+		width: '140px',
 
 		'&:hover': {
 			backgroundColor: '#3effdb',
@@ -67,24 +66,31 @@ const useStyles = createUseStyles({
 		},
 
 		'@media screen (min-width: 1240px)': {
+			fontSize: '18px',
+			minHeight: '48px',
 			width: '180px'
 		}
 	},
 	mint_button: {
 		backgroundColor: '#3effdb',
-		border: 'solid 4px white',
+		border: 'solid 4px black',
 		color: 'black',
 		marginBottom: '4px',
-		outline: 'solid 4px black',
+
 		'&:hover': {
 			color: 'white',
 			backgroundColor: '#d362d2',
 		}
 	},
 	button_night_mode: {
-		border: 'solid 4px black',
-		outline: 'solid 4px white',
+		border: 'solid 4px white',
+		fontSize: '14px',
 		transition: 'border .4s linear, outline .4s linear',
+
+		'@media screen (min-width: 1240px)': {
+			fontSize: '18px',
+			width: '180px'
+		}
 	},
 	unconnected_text: {
 		opacity: 0,
@@ -105,7 +111,6 @@ const Header = () => {
 	const classes = useStyles();
 	const [walletConnected, setWalletConnected] = React.useState<boolean>(false);
 	const [userWalletAddress, setUserWalletAddress] = React.useState<string>('');
-
 	const [section, setSection] = React.useState<number>(0);
 	const sectionRef = React.useRef<HTMLDivElement>(null);
 	const dispatch = useDispatch();
