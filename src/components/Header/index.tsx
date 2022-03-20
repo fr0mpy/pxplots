@@ -17,7 +17,6 @@ const useStyles = createUseStyles({
 		zIndex: 1,
 
 		'@media screen and (max-width: 1024px)': {
-			boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px',
 			lineHeight: 'normal',
 			padding: '4px 16px 2px',
 			position: 'absolute',

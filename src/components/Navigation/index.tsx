@@ -266,7 +266,7 @@ const Navigation = () => {
 				</p> */}
 			</div>
 			<div className={`${classes.dotted_line} ${lightMode ? '' : classes.dotted_line_night_mode}`} />
-			<div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px', width: '100%' }}>
+			<div style={{ display: 'flex', justifyContent: 'center', margin: '0 auto 16px auto', maxWidth: '86%', width: '86%' }}>
 				{renderHeadings()}
 			</div>
 			<div className={classes.section_container} ref={sectionRef}>
