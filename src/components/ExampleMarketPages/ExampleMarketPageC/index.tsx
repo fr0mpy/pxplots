@@ -249,8 +249,8 @@ const ExampleMarketPageC = () => {
 						>
 						</div>
 						<div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-							<p className={`${classes.text} ${active ? classes.text_hovered : ''}`}>{tg ? 'This isn\'t an easter egg... but you\'re close to one! ' : 'Artwork Name'}</p>
-							<p className={`${classes.text} ${active ? classes.text_hovered : ''}`}>{tg ? '' : '0.3ETH'}</p>
+							<p className={`${classes.text} ${active ? classes.text_hovered : ''}`}>{tg ? '69' : 'Artwork Name'}</p>
+							<p className={`${classes.text} ${active ? classes.text_hovered : ''}`}>{tg ? 'Nice' : '0.3ETH'}</p>
 						</div>
 					</>
 				}

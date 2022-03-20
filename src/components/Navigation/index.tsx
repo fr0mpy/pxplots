@@ -106,6 +106,7 @@ const useStyles = createUseStyles({
 		fontSize: '20px',
 		fontFamily: 'Roboto Slab, serif',
 		borderBottom: 'solid 3px transparent',
+		maxWidth: '95px',
 
 		'&:hover': {
 			borderBottom: 'solid 3px #5141f1'
@@ -117,14 +118,14 @@ const useStyles = createUseStyles({
 	},
 	heading_button_active: {
 		color: '#5141f1',
+		maxWidth: '95px',
 		opacity: 1,
+
 		'&:hover': {
 			borderBottom: 'solid 3px transparent'
 		}
 	},
 	headings_container: {
-		display: 'flex',
-		justifyContent: 'center',
 		margin: '0 auto 16px auto',
 
 		'@media screen and (max-width: 380px)': {
