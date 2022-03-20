@@ -193,7 +193,7 @@ const useStyles = createUseStyles({
 	footer: {
 		alignItems: 'center',
 		backgroundColor: 'white',
-		boxShadow: 'rgb(0 0 0) 8px -12px 34px 0px',
+		// boxShadow: 'rgb(0 0 0) 8px -12px 34px 0px',
 		color: 'black',
 		display: 'flex',
 		height: '70px',
