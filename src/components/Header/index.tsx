@@ -47,7 +47,7 @@ const useStyles = createUseStyles({
 		color: 'white',
 		cursor: 'pointer',
 		fontFamily: 'Roboto Slab, serif',
-		fontSize: '16px',
+		fontSize: '14px',
 		minHeight: '42px',
 		transition: 'border .4s linear, outline .4s linear, background-color .2s linear',
 		width: '140px',

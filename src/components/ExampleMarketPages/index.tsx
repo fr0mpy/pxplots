@@ -119,17 +119,22 @@ const useStyles = createUseStyles({
 				fill: 'white',
 				transition: 'all .4s ease-in-out'
 			},
+
 		},
 
 		'@media screen and (max-width: 600px)': {
 			'& .flickity-prev-next-button': {
-				top: '87.5%'
+				height: '52px',
+				width: '52px',
+				top: '85%'
 			},
 		},
 
 		'@media screen and (max-width: 380px)': {
 			'& .flickity-prev-next-button': {
-				top: '86%'
+				top: '82%',
+				height: '38px',
+				width: '38px',
 			},
 		}
 	},
@@ -169,6 +174,7 @@ const useStyles = createUseStyles({
 				transition: 'all .4s ease-in-out',
 				boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px'
 			},
+
 			'& .flickity-button-icon': {
 				fill: 'white',
 				transition: 'all .4s ease-in-out'
@@ -185,8 +191,8 @@ const useStyles = createUseStyles({
 		'@media screen and (max-width: 380px)': {
 			'& .flickity-prev-next-button': {
 				top: '82%',
-				height: '42px',
-				width: '42px',
+				height: '38px',
+				width: '38px',
 			},
 		}
 	},
