@@ -2,11 +2,12 @@ import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 import GridContainer from '../Grid/GridContainer/';
 import Navigation from '../Navigation/';
-// import Menu from '../Menu/';
-import Modal from '../Modal/';
 import { getItemFromLocalStorage } from '../../helpers/storage';
 import { useDispatch } from 'react-redux';
 import { setTheme } from '../../Redux/slices/themeSlice';
+import { deviceTypeIs } from '../../helpers/devices';
+import { DeviceType } from '../../enums/devices';
+import throttle from '../../helpers/throttle';
 
 const useStyles = createUseStyles({
 	container: {
@@ -16,7 +17,8 @@ const useStyles = createUseStyles({
 });
 
 const Wrapper = () => {
-	const [modalOpen, setModalOpen] = React.useState<boolean>(false);
+	const [ignored, force] = React.useReducer(x => x + 1, 0);
+
 	const classes = useStyles();
 	const dispatch = useDispatch();
 
@@ -24,22 +26,33 @@ const Wrapper = () => {
 		const storedTheme = getItemFromLocalStorage('theme');
 
 		if (storedTheme) {
-			dispatch(setTheme(storedTheme))
+			dispatch(setTheme(storedTheme));
 		}
+
+		window.addEventListener('resize', onResize);
+
+		return window.removeEventListener('resize', onResize);
 	}, [])
 
-	const openModal = () => setModalOpen(true);
+	React.useEffect(() => {
+		window.addEventListener('resize', onResize);
+		return () => window.removeEventListener('resize', onResize);
+	}, [])
 
-	const closeModal = () => setModalOpen(false);
+	const onResize = () => {
+		throttle(forceUpdate, 500)
+	}
+
+	const forceUpdate = () => force();
+
+	const isDesktop = deviceTypeIs(DeviceType.Desktop);
 
 	return (
 		<div className={classes.container}>
-			<Modal open={modalOpen} closeModal={closeModal} />
 			<div style={{ height: '100vh', width: '100vw', display: 'flex' }}>
-				<Navigation />
+				{isDesktop ? <Navigation /> : null}
 				<GridContainer />
 			</div>
-			{/* <Menu openModal={openModal} /> */}
 		</div>
 	);
 };

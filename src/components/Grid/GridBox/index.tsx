@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 
 interface IProps {
@@ -6,16 +5,11 @@ interface IProps {
 }
 
 const useStyles = createUseStyles({
-	container: {
-		display: 'flex',
-		flexFlow: 'row wrap'
-	},
-	root: {
-		//
-	},
-	deadPixels: {
-		backgroundColor: 'black',
-		flex: 1
+	plot: {
+		minHeight: '1.5rem',
+		maxHeight: '30px',
+		minWidth: '1.5rem',
+		maxWidth: '30px'
 	}
 });
 
@@ -25,15 +19,13 @@ interface IProps {
 
 const GridBox = ({ bgColour }: IProps) => {
 	const classes = useStyles();
-	const [active, setActive] = React.useState<boolean>(false);
 
 	return (
 		<div
 			style={{
-				backgroundColor: active ? 'white' : bgColour,
-				height: '20px',
-				width: '20px'
+				backgroundColor: bgColour,
 			}}
+			className={classes.plot}
 		/>
 	);
 };

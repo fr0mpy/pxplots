@@ -1,18 +1,11 @@
-import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 import GridBox from '../GridBox/'
 
 const useStyles = createUseStyles({
 	container: {
 		display: 'flex',
-		flexFlow: 'row wrap'
-	},
-	root: {
-		//
-	},
-	deadPixels: {
-		backgroundColor: 'black',
-		flex: 1
+		flexFlow: 'row wrap',
+		width: 'calc(100% + 30px)'
 	}
 });
 
@@ -35,12 +28,11 @@ const GridBoxes = () => {
 		return gridBoxes
 	}
 
-	const gridBoxesz = createGridBoxes()
+	const gridBoxes = createGridBoxes()
 
 	return (
 		<div className={classes.container}>
-			{gridBoxesz}
-			<span className={classes.deadPixels} id={'dead-pixels'} />
+			{gridBoxes}
 		</div>
 	);
 };
