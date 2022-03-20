@@ -40,7 +40,7 @@ const useStyles = createUseStyles({
 			width: '88%'
 		},
 		'@media screen and (max-width: 380px)': {
-			height: '62.5%'
+			height: '58%'
 		}
 	},
 	slide_container: {
@@ -58,7 +58,7 @@ const useStyles = createUseStyles({
 		},
 
 		'@media screen and (max-width: 380px)': {
-			height: '62.5%'
+			height: '58%'
 		}
 	},
 	flickity_slider_sub: {
@@ -212,7 +212,7 @@ const useStyles = createUseStyles({
 		margin: '0 0 4px 0',
 
 		'@media screen and (max-width: 1024px)': {
-			fontSize: '24px',
+			fontSize: '16px',
 
 		},
 	},
@@ -433,7 +433,7 @@ const ExampleMarketPageB = () => {
 							className={classes.cream_text_2}
 							style={{
 								color: lightMode ? 'black' : 'white',
-								fontFamily: 'fantasy',
+								fontFamily: 'Anton, sans-serif',
 								transition: 'color .4s ease-in'
 							}}
 						>

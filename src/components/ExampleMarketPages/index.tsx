@@ -1,11 +1,9 @@
-import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 import { useSelector } from 'react-redux';
 import { DeviceType } from '../../enums/devices';
 import { Theme } from '../../enums/themes';
 import { deviceTypeIs } from '../../helpers/devices';
 import { IThemeState } from '../../Redux/slices/themeSlice';
-import Flickity from 'react-flickity-component'
 import ExampleMarketPageC from './ExampleMarketPageC';
 import ExampleMarketPageD from './ExampleMarketPageD';
 import ExampleMarketPageA from './ExamplePageA';
@@ -181,12 +179,12 @@ const useStyles = createUseStyles({
 			'& .flickity-prev-next-button': {
 				height: '52px',
 				width: '52px',
-				top: '87%'
+				top: '85%'
 			},
 		},
 		'@media screen and (max-width: 380px)': {
 			'& .flickity-prev-next-button': {
-				top: '84%',
+				top: '82%',
 				height: '42px',
 				width: '42px',
 			},

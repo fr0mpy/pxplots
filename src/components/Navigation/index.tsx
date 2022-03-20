@@ -47,7 +47,7 @@ const useStyles = createUseStyles({
 			width: '88%'
 		},
 		'@media screen and (max-width: 380px)': {
-			height: '62.5%'
+			height: '58%'
 		}
 	},
 	root_width: {
@@ -78,7 +78,7 @@ const useStyles = createUseStyles({
 		transition: 'opacity .2s ease-in-out'
 	},
 	nav_title: {
-		margin: '0',
+		margin: '0 0 4px',
 		fontSize: '28px',
 
 		'@media screen and (max-width: 600px)': {
@@ -258,15 +258,15 @@ const Navigation = () => {
 				<p className={`${classes.text} ${classes.nav_title} ${lightMode ? '' : classes.night_mode_text}`}>
 					Welcome To pxplots!
 				</p>
-				<p className={classes.seed} >
+				{/* {isDesktop ? <p className={classes.seed} >
 					🌱
-				</p>
-				<p className={`${classes.text} ${classes.nav_caption} ${lightMode ? '' : classes.night_mode_text}`}>
+				</p> : null} */}
+				{/* <p className={`${classes.text} ${classes.nav_caption} ${lightMode ? '' : classes.night_mode_text}`}>
 					10,000 sm0l plots, living on the Ethereum blockchain 🧱⛓️
-				</p>
+				</p> */}
 			</div>
 			<div className={`${classes.dotted_line} ${lightMode ? '' : classes.dotted_line_night_mode}`} />
-			<div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+			<div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px', width: '100%' }}>
 				{renderHeadings()}
 			</div>
 			<div className={classes.section_container} ref={sectionRef}>
