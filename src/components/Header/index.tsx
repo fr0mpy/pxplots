@@ -47,7 +47,7 @@ const useStyles = createUseStyles({
 		color: 'white',
 		cursor: 'pointer',
 		fontFamily: 'Roboto Slab, serif',
-		fontSize: '14px',
+		fontSize: '16px',
 		minHeight: '42px',
 		transition: 'border .4s linear, outline .4s linear, background-color .2s linear',
 		width: '140px',
@@ -83,7 +83,7 @@ const useStyles = createUseStyles({
 	},
 	button_night_mode: {
 		border: 'solid 4px white',
-		fontSize: '14px',
+		fontSize: '16px',
 		transition: 'border .4s linear, outline .4s linear',
 
 		'@media screen (min-width: 1240px)': {
