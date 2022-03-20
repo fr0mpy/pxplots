@@ -101,11 +101,12 @@ const useStyles = createUseStyles({
 	heading_button: {
 		backgroundColor: 'transparent',
 		border: 'none',
+		borderBottom: 'solid 3px transparent',
 		color: 'grey',
 		cursor: 'pointer',
 		fontSize: '20px',
 		fontFamily: 'Roboto Slab, serif',
-		borderBottom: 'solid 3px transparent',
+		padding: '0 2.5px',
 		maxWidth: '95px',
 
 		'&:hover': {
@@ -119,6 +120,7 @@ const useStyles = createUseStyles({
 	heading_button_active: {
 		color: '#5141f1',
 		maxWidth: '95px',
+		padding: '0 2.5px',
 		opacity: 1,
 
 		'&:hover': {
