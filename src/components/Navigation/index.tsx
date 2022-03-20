@@ -122,6 +122,15 @@ const useStyles = createUseStyles({
 			borderBottom: 'solid 3px transparent'
 		}
 	},
+	headings_container: {
+		display: 'flex',
+		justifyContent: 'center',
+		margin: '0 auto 16px auto',
+
+		'@media screen and (max-width: 380px)': {
+			maxWidth: '265px'
+		}
+	},
 	section_container: {
 		flex: 1,
 		height: '50%',
@@ -266,7 +275,7 @@ const Navigation = () => {
 				</p> */}
 			</div>
 			<div className={`${classes.dotted_line} ${lightMode ? '' : classes.dotted_line_night_mode}`} />
-			<div style={{ display: 'flex', justifyContent: 'center', margin: '0 auto 16px auto', maxWidth: '86%', width: '86%' }}>
+			<div className={classes.headings_container}>
 				{renderHeadings()}
 			</div>
 			<div className={classes.section_container} ref={sectionRef}>

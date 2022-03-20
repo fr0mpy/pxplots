@@ -298,7 +298,6 @@ const ExampleMarketPageC = () => {
 				? <div style={{
 					height: '64px',
 					backgroundColor: lightMode ? 'white' : 'black',
-					boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px',
 					width: '100%',
 					position: 'fixed',
 					top: 0,
