@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 import GridBox from '../GridBox/'
 
@@ -34,7 +33,6 @@ const GridBoxes = () => {
 	return (
 		<div className={classes.container}>
 			{gridBoxes}
-			{/* <span className={classes.deadPixels} id={'dead-pixels'} /> */}
 		</div>
 	);
 };

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 import { useSelector } from 'react-redux';
 import { Theme } from '../../enums/themes';
@@ -6,7 +5,6 @@ import { IThemeState } from '../../Redux/slices/themeSlice';
 
 const useStyles = createUseStyles({
 	overlay: {
-		// background: 'rgba(0, 0, 0, 0.75)',
 		height: '100vh',
 		width: '100vw',
 		position: 'absolute',
@@ -44,7 +42,6 @@ const useStyles = createUseStyles({
 			width: '80%'
 		},
 
-
 		'@media screen and (max-width: 600px)': {
 			height: '68%',
 			padding: '16px',
@@ -64,12 +61,10 @@ const useStyles = createUseStyles({
 
 	},
 	button: {
-		// backgroundColor: '#5141f1',
 		backgroundColor: '#3effdb',
 		border: 'solid 4px black',
 		borderRadius: '5px',
 		color: 'black',
-		// color: 'white',
 		cursor: 'pointer',
 		fontFamily: 'Roboto Slab, serif',
 		fontSize: '32px',
@@ -79,11 +74,7 @@ const useStyles = createUseStyles({
 		width: '262px',
 		padding: '8px',
 		margin: '42px auto 0 auto',
-		// '&:hover': {
-		// 	backgroundColor: '#3effdb',
-		// 	color: 'black',
-		// 	transition: 'background-color .2s linear',
-		// },
+
 		'&:active': {
 			backgroundColor: '#fffd00',
 			boxShadow: 'inset 0 0 16px #000000',
@@ -94,6 +85,7 @@ const useStyles = createUseStyles({
 		border: 'solid 4px black',
 		backgroundColor: '#3effdb',
 		color: 'black',
+
 		'&:hover': {
 			color: 'white',
 			backgroundColor: '#d362d2',
@@ -111,6 +103,7 @@ const useStyles = createUseStyles({
 		textDecoration: 'none',
 		width: '100%',
 		fontSize: '32px',
+
 		'&:hover': {
 			color: '#3effdb',
 			opacity: .75
@@ -129,11 +122,11 @@ const MintModal = () => {
 	return (
 		<div className={classes.overlay}>
 			<div className={`${classes.modal_container} ${lightMode ? '' : classes.modal_container_night}`}>
-				<p style={{ fontSize: '32px', margin: '12px 0 46px' }}>Mint Coming Soon... </p>
-
+				<p style={{ fontSize: '32px', margin: '12px 0 46px' }}>
+					Mint Coming Soon...
+				</p>
 				<div>
 				</div>
-				{/* <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', flexFlow: 'column' }}> */}
 				<p style={{ fontSize: '20px', margin: '12px 0' }}>
 					In the meantime: You have found your first easter egg!
 				</p>
@@ -143,13 +136,11 @@ const MintModal = () => {
 				<p style={{ fontSize: '20px', margin: '12px 0' }}>
 					You have also just lost
 				</p>
-				{/* </div> */}
 				<a href={'https://knowyourmeme.com/memes/the-game'} target={'blank'}>
 					<button className={classes.button}>
 						The Game
 					</button>
 				</a>
-
 			</div>
 		</div >
 	)

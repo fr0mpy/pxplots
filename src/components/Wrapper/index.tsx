@@ -17,7 +17,6 @@ const useStyles = createUseStyles({
 });
 
 const Wrapper = () => {
-	const [modalOpen, setModalOpen] = React.useState<boolean>(false);
 	const [ignored, force] = React.useReducer(x => x + 1, 0);
 
 	const classes = useStyles();
@@ -46,19 +45,14 @@ const Wrapper = () => {
 
 	const forceUpdate = () => force();
 
-	const openModal = () => setModalOpen(true);
-
-	const closeModal = () => setModalOpen(false);
 	const isDesktop = deviceTypeIs(DeviceType.Desktop);
 
 	return (
 		<div className={classes.container}>
-			{/* <Modal open={modalOpen} closeModal={closeModal} /> */}
 			<div style={{ height: '100vh', width: '100vw', display: 'flex' }}>
 				{isDesktop ? <Navigation /> : null}
 				<GridContainer />
 			</div>
-			{/* <Menu openModal={openModal} /> */}
 		</div>
 	);
 };

@@ -1,8 +1,5 @@
 import * as React from 'react';
 import { createUseStyles } from 'react-jss';
-import { useSelector } from 'react-redux';
-import { Theme } from '../../enums/themes';
-import { IThemeState } from '../../Redux/slices/themeSlice';
 
 const useStyles = createUseStyles({
 	cube: {
@@ -28,8 +25,6 @@ const getBgColour = () => {
 const PxplotCube = () => {
 	const [bgColour, setBgColour] = React.useState<string>('');
 	const classes = useStyles();
-	const { theme } = useSelector((state: IThemeState) => state.theme);
-	const lightMode = theme === Theme.Light;
 
 	React.useEffect(() => {
 		interval();
@@ -48,7 +43,6 @@ const PxplotCube = () => {
 				className={classes.cube}
 				style={{
 					backgroundColor: bgColour,
-					// border: `solid 3px ${lightMode ? 'black' : 'white'}`
 				}}
 			/>
 		</div>

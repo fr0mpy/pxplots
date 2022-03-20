@@ -3,7 +3,6 @@ import { createUseStyles } from 'react-jss';
 import { useSelector } from 'react-redux';
 import { DeviceType } from '../../../enums/devices';
 import { deviceTypeIs } from '../../../helpers/devices';
-import { IModalState } from '../../../Redux/slices/mintSlice';
 import ExampleMarketPages from '../../ExampleMarketPages/';
 import MintModal from '../../MintModal';
 import GridBoxes from '../GridBoxes/';
@@ -22,10 +21,8 @@ const GridContainer = () => {
 	const classes = useStyles();
 	const divEl = React.useRef<HTMLDivElement>(null);
 	const { modalOpen } = useSelector((state: any): any => state.modal)
-	// const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
 	const isDesktop = deviceTypeIs(DeviceType.Desktop);
 
-	// 
 	return (
 		<div className={classes.container} ref={divEl}>
 			{modalOpen

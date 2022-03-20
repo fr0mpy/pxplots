@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 import { useSelector } from 'react-redux';
 import { Theme } from '../../../enums/themes';
@@ -347,7 +346,6 @@ const ExampleMarketPageB = () => {
 								}}
 							/>
 							: null}
-
 					</div>
 					<div
 						className={classes.half_container}

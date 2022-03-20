@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 import { IThemeState } from '../../Redux/slices/themeSlice'
 import { useSelector } from 'react-redux';

@@ -21,10 +21,6 @@ export default class FlickityComponent extends React.PureComponent<IProps> {
 			fullScreen: false
 		}
 
-		// disableImagesLoaded={false}
-		// 		reloadOnUpdate
-		// 		static
-
 		return (
 			<Flickity
 				className={className}

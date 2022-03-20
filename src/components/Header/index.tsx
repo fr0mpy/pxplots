@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { createUseStyles } from 'react-jss';
-import { IThemeState, setTheme } from '../../Redux/slices/themeSlice';
+import { IThemeState } from '../../Redux/slices/themeSlice';
 import { useSelector, useDispatch } from 'react-redux'
 import ThemeToggle from '../ThemeToggle';
 import { Theme } from '../../enums/themes';
@@ -101,16 +101,6 @@ const useStyles = createUseStyles({
 
 });
 
-enum Sections {
-	About = 0,
-	Roadmap = 1,
-	Team = 2,
-	Faq = 3,
-	DontClick = 4
-}
-
-
-
 const Header = () => {
 	const classes = useStyles();
 	const [walletConnected, setWalletConnected] = React.useState<boolean>(false);
@@ -122,7 +112,6 @@ const Header = () => {
 	const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
 	const { modalOpen } = useSelector((state: any): any => state.modal)
 
-	const headings = ['About', 'RoadMap', 'Team', 'FAQ'];
 	const lightMode = theme === Theme.Light;
 
 	React.useEffect(() => {
@@ -132,7 +121,6 @@ const Header = () => {
 	}, [section])
 
 	const connectWallet = () => {
-		console.log('connectin')
 		if ((window as any).ethereum) {
 			(window as any).ethereum
 				.request({ method: 'eth_requestAccounts' })

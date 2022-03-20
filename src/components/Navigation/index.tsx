@@ -5,11 +5,9 @@ import Roadmap from './Roadmap/';
 import Team from './Team/';
 import FAQ from './FAQ/';
 import SocialLinks from '../SocialLinks/';
-import { IThemeState, setTheme } from '../../Redux/slices/themeSlice';
-import { useSelector, useDispatch } from 'react-redux'
-import ThemeToggle from '../ThemeToggle';
+import { IThemeState } from '../../Redux/slices/themeSlice';
+import { useSelector } from 'react-redux'
 import { Theme } from '../../enums/themes';
-import { setModalOpen } from '../../Redux/slices/mintSlice';
 import Header from '../Header';
 import { deviceTypeIs } from '../../helpers/devices';
 import { DeviceType } from '../../enums/devices';
@@ -78,7 +76,6 @@ const useStyles = createUseStyles({
 		fontSize: '12px',
 		opacity: 1,
 		transition: 'opacity .2s ease-in-out'
-
 	},
 	nav_title: {
 		margin: '0',
@@ -129,13 +126,16 @@ const useStyles = createUseStyles({
 		flex: 1,
 		height: '50%',
 		overflowY: 'auto',
+
 		'&::-webkit-scrollbar': {
 			width: '0.4em',
 			height: '10px !important'
 		},
+
 		'&::-webkit-scrollbar-track': {
 			padding: '0 16px'
 		},
+
 		'&::-webkit-scrollbar-thumb': {
 			backgroundColor: '#5141f1',
 			borderRadius: '8px',
@@ -143,6 +143,7 @@ const useStyles = createUseStyles({
 			marginLeft: '10px',
 			transition: 'border .4s linear',
 		},
+
 		'@media screen and (max-width: 1200px)': {
 			height: '60%',
 			overflowY: 'auto',
@@ -280,7 +281,7 @@ const Navigation = () => {
 					</div>
 					: null
 			}
-		</div >
+		</div>
 	);
 };
 

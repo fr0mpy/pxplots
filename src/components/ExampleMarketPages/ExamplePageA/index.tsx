@@ -184,10 +184,8 @@ const useStyles = createUseStyles({
 			minHeight: '181px'
 		},
 
-
 		'@media screen and (max-width: 600px)': {
-			minHeight: '100px',
-			// width: '33%'
+			minHeight: '100px'
 		},
 	},
 	last_cubes: {
@@ -196,14 +194,12 @@ const useStyles = createUseStyles({
 		backgroundColor: '#ffeea7',
 		margin: '6px',
 		height: '100%',
-
 	},
 	textHoverText: {
 		color: 'inherit',
 		fontSize: '12px',
 		margin: '12px',
 		maxWidth: '60px',
-
 		opacity: 0,
 		position: 'relative',
 		top: '32px',
@@ -217,7 +213,7 @@ const useStyles = createUseStyles({
 
 		'@media screen and (max-width: 600px)': {
 			margin: '2px'
-		},
+		}
 	},
 	textHoverText_hover: {
 		fontSize: '12px',
@@ -228,17 +224,14 @@ const useStyles = createUseStyles({
 		top: '0',
 		transition: 'all .6s ease-in-out',
 		width: '80%'
-
 	}
 });
 
 const ExampleMarketPageA = () => {
 	const classes = useStyles();
 	const [expandedBox, setExpandedBox] = React.useState<number | false>(false);
-
 	const [activeBox, setActiveBox] = React.useState<number>(0);
 	const isMobile = deviceTypeIs(DeviceType.Mobile);
-
 	const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
 	const lightMode = theme === Theme.Light;
 
@@ -257,7 +250,6 @@ const ExampleMarketPageA = () => {
 						style={{ backgroundColor: bgColour }}
 						onClick={() => setExpandedBox(expanded ? false : i)}
 					/>
-
 					<div>
 						<p
 							className={classes.small_text}
@@ -319,7 +311,6 @@ const ExampleMarketPageA = () => {
 			<p className={classes.text} style={{ margin: '4px' }}>
 				Create your own gallery.
 			</p>
-
 			<p className={classes.text} style={{ margin: '4px 0 12px' }}>
 				Showcase your art. Set image sizes. Set prices. Link & Mint it.
 			</p>

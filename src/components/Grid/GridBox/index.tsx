@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { createUseStyles } from 'react-jss';
 
 interface IProps {
@@ -10,8 +9,7 @@ const useStyles = createUseStyles({
 		minHeight: '1.5rem',
 		maxHeight: '30px',
 		minWidth: '1.5rem',
-		maxWidth: '30px',
-		// flex: 1
+		maxWidth: '30px'
 	}
 });
 

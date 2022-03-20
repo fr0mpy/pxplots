@@ -21,9 +21,11 @@ const useStyles = createUseStyles({
 		position: 'relative',
 		width: '70px',
 		transition: 'background-color .1s linear',
+
 		'&:hover': {
 			backgroundColor: '#dedede'
 		},
+
 		'@media screen and (max-width: 1024px)': {
 			marginTop: '0'
 		}
@@ -42,9 +44,11 @@ const useStyles = createUseStyles({
 		position: 'relative',
 		width: '70px',
 		transition: 'background-color .1s linear',
+
 		'&:hover': {
 			backgroundColor: '#2d2d2d'
 		},
+
 		'@media screen and (max-width: 1024px)': {
 			marginTop: '0'
 		}
@@ -56,7 +60,6 @@ const useStyles = createUseStyles({
 
 		'&:first-child': {
 			transform: 'translateY(0)'
-
 		},
 
 		'&:nth-child(2)': {
@@ -69,7 +72,6 @@ const useStyles = createUseStyles({
 
 		'&:first-child': {
 			transform: 'translateY(100px)',
-
 		},
 
 		'&:nth-child(2)': {
