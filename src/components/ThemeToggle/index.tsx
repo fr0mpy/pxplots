@@ -88,7 +88,6 @@ const ThemeToggle = () => {
 
 	React.useEffect(() => {
 		const storedTheme = getItemFromLocalStorage('theme')
-		console.log("stored theme", storedTheme)
 	})
 
 	const toggleTheme = () => {
