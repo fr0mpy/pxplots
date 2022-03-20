@@ -87,7 +87,7 @@ const ExampleMarketPageC = () => {
 			}}
 			>
 				<p className={classes.text}>
-					Hope you've enjoyed these examples
+					Hope you've enjoyed these examples - a glimpse of what this project sets out to accomplish
 				</p>
 			</div>
 			<div style={{
