@@ -25,7 +25,6 @@ const GridContainer = () => {
 	// const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
 	const isDesktop = deviceTypeIs(DeviceType.Desktop);
 
-	console.log('modal >', modalOpen)
 	// 
 	return (
 		<div className={classes.container} ref={divEl}>

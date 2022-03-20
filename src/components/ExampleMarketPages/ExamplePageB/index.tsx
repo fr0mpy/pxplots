@@ -3,9 +3,9 @@ import { createUseStyles } from 'react-jss';
 import { useSelector } from 'react-redux';
 import { Theme } from '../../../enums/themes';
 import { IThemeState } from '../../../Redux/slices/themeSlice';
-import Flickity from 'react-flickity-component'
 import { deviceTypeIs } from '../../../helpers/devices';
 import { DeviceType } from '../../../enums/devices';
+import FlickityComponent from '../../FlickityComponent';
 
 const useStyles = createUseStyles({
 
@@ -64,6 +64,10 @@ const useStyles = createUseStyles({
 	},
 	flickity_slider_sub: {
 		height: '100%',
+
+		'& .flickity-viewport': {
+			height: '100% !important'
+		},
 
 		'& .flickity-page-dots': {
 			bottom: '10px !important'
@@ -178,12 +182,17 @@ const useStyles = createUseStyles({
 		textAlign: 'right'
 	},
 	cream_center_container: {
+		borderRadius: '4px',
 		backgroundColor: 'white',
 		boxShadow: 'rgb(0 0 0) 12px 12px 0px 0px',
 		height: '36%',
 		margin: '15% 0 0 8%',
 		padding: '16px',
 		width: '45%',
+
+		'@media screen and (max-width: 1024px)': {
+			marginTop: '55%'
+		},
 
 		'@media screen and (max-width: 600px)': {
 			height: 'fit-content',
@@ -192,12 +201,11 @@ const useStyles = createUseStyles({
 		}
 	},
 	cream_text_1: {
-		fontSize: '8px',
+		fontSize: '10px',
 		margin: '0 0 4px 0',
 
 		'@media screen and (max-width: 1024px)': {
 			fontSize: '14px',
-
 		},
 	},
 	cream_text_2: {
@@ -205,7 +213,7 @@ const useStyles = createUseStyles({
 		margin: '0 0 4px 0',
 
 		'@media screen and (max-width: 1024px)': {
-			fontSize: '30px',
+			fontSize: '24px',
 
 		},
 	},
@@ -214,15 +222,17 @@ const useStyles = createUseStyles({
 		margin: '0 0 4px 0',
 
 		'@media screen and (max-width: 1024px)': {
-			fontSize: '18px',
+			fontSize: '14px',
 
 		},
 	},
 	center_text: {
-		margin: 'auto auto 22% auto',
-		'@media screen and (max-width: 1024px)': {
-			margin: 'auto'
-		},
+		alignItems: 'center',
+		display: 'flex',
+		flexFlow: 'column',
+		height: '100%',
+		justifyContent: 'center',
+
 	},
 	welcome: {
 		fontSize: '40px',
@@ -235,7 +245,6 @@ const useStyles = createUseStyles({
 
 		'@media screen and (max-width: 600px)': {
 			fontSize: '40px',
-			height: '68%',
 			top: '48%',
 			width: '88%',
 		}
@@ -254,6 +263,7 @@ const useStyles = createUseStyles({
 		}
 	},
 	white_block: {
+		borderRadius: '4px',
 		height: '80%',
 		width: '60%',
 		backgroundColor: 'white',
@@ -273,16 +283,6 @@ const useStyles = createUseStyles({
 
 const ExampleMarketPageB = () => {
 	const classes = useStyles();
-
-	const flickityOptions = {
-		contain: true,
-		initialIndex: 0,
-		draggable: false,
-		freeScroll: true,
-		wrapAround: true,
-		groupCells: true,
-
-	}
 	const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
 	const lightMode = theme === Theme.Light;
 	const isDesktop = deviceTypeIs(DeviceType.Desktop);
@@ -291,14 +291,7 @@ const ExampleMarketPageB = () => {
 
 	return (
 		<div className={classes.container}>
-			<Flickity
-				className={`${classes.flickity_slider_sub}`}
-				elementType={'div'}
-				options={flickityOptions}
-				disableImagesLoaded={false}
-				reloadOnUpdate
-				static
-			>
+			<FlickityComponent className={classes.flickity_slider_sub}>
 				<div className={classes.slide_container} style={{ backgroundColor: '#e4274e' }} >
 					<div className={classes.header_container}>
 						<p className={classes.header_text}>Your Name</p>
@@ -315,7 +308,7 @@ const ExampleMarketPageB = () => {
 							Welcome.
 						</p>
 						<p className={classes.welcome_sub_text}>
-							To my NFT marketpage
+							To my example marketpage
 						</p>
 					</div>
 				</div>
@@ -326,16 +319,33 @@ const ExampleMarketPageB = () => {
 					<div className={classes.half_container}>
 						<div
 							className={classes.white_block}
-							style={{ backgroundColor: lightMode ? 'white' : 'black' }}
+							style={{
+								backgroundColor: lightMode ? 'white' : 'black', transition: 'background-color .4s ease-in'
+							}}
 						/>
 						{!isDesktop
 							? <>
-								<div className={classes.white_block} />
-								<div className={classes.white_block} />
+								<div
+									className={classes.white_block}
+									style={{
+										backgroundColor: lightMode ? 'white' : 'black', transition: 'background-color .4s ease-in'
+									}}
+								/>
+								<div
+									className={classes.white_block}
+									style={{
+										backgroundColor: lightMode ? 'white' : 'black', transition: 'background-color .4s ease-in'
+									}}
+								/>
 							</>
 							: null}
 						{isMobile
-							? <div className={classes.white_block} />
+							? <div
+								className={classes.white_block}
+								style={{
+									backgroundColor: lightMode ? 'white' : 'black', transition: 'background-color .4s ease-in'
+								}}
+							/>
 							: null}
 
 					</div>
@@ -416,19 +426,20 @@ const ExampleMarketPageB = () => {
 							className={classes.cream_text_1}
 							style={{
 								color: lightMode ? 'black' : 'white',
-								transition: 'color .4s ease-in'
+								transition: 'color .4s ease-in',
 							}}
 						>
-							Some sm0l text here
+							Set your font sizes
 						</p>
 						<p
 							className={classes.cream_text_2}
 							style={{
 								color: lightMode ? 'black' : 'white',
+								fontFamily: 'fantasy',
 								transition: 'color .4s ease-in'
 							}}
 						>
-							And Large Text Here! Hello!
+							And choose different font styles
 						</p>
 						<p
 							className={classes.cream_text_3}
@@ -437,8 +448,8 @@ const ExampleMarketPageB = () => {
 								transition: 'color .4s ease-in'
 							}}
 						>
-							By the way, there's 4 meme easter eggs hidden around this site.
-							Find all of them and send them to the twitter to get a spot on the free mint whitelist.
+							And by the way, there's 4 meme easter eggs hidden around this site.
+							Find all of them and get a spot on the free mint whitelist.
 						</p>
 					</div>
 				</div>
@@ -484,7 +495,7 @@ const ExampleMarketPageB = () => {
 						/>
 					</div>
 				</div>
-			</Flickity>
+			</FlickityComponent>
 		</div>
 	);
 };

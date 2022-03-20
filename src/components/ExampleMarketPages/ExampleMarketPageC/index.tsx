@@ -176,36 +176,38 @@ const ExampleMarketPageC = () => {
 	const lightMode = theme === Theme.Light;
 	const isDesktop = deviceTypeIs(DeviceType.Desktop);
 	const isMobile = deviceTypeIs(DeviceType.Mobile);
+	const isTablet = deviceTypeIs(DeviceType.Tablet);
+
 
 	const rectsLeft = [
-		{ height: 105, bgColour: '#f187fa' },
-		{ height: 125, bgColour: '#e4274e' },
-		{ height: 125, bgColour: '#3effdb' },
-		{ height: 155, bgColour: '#5141f1' },
-		{ height: 195, bgColour: '#8dc2ff' },
-		{ height: 100, bgColour: '#8dfffd' },
-		{ height: 100, bgColour: '#dbff8d' },
-		{ height: 155, bgColour: '#f39191' },
-		{ height: 155, bgColour: '#e4274e' },
-		{ height: 100, bgColour: '#eb67b3' },
-		{ height: 100, bgColour: '#22a6c0' },
-		{ height: 100, bgColour: '#8d8dff' },
-		{ height: 155, bgColour: '#89c0ff' },
-		{ height: 115, bgColour: '#22a6c0' },
+		{ height: isTablet ? 135 : 105, bgColour: '#f187fa' },
+		{ height: isTablet ? 155 : 125, bgColour: '#e4274e' },
+		{ height: isTablet ? 170 : 125, bgColour: '#3effdb' },
+		{ height: isTablet ? 180 : 155, bgColour: '#5141f1' },
+		{ height: isTablet ? 155 : 195, bgColour: '#8dc2ff' },
+		{ height: isTablet ? 200 : 100, bgColour: '#8dfffd' },
+		{ height: isTablet ? 178 : 100, bgColour: '#dbff8d' },
+		{ height: isTablet ? 210 : 155, bgColour: '#f39191' },
+		{ height: isTablet ? 174 : 155, bgColour: '#e4274e' },
+		{ height: isTablet ? 145 : 100, bgColour: '#eb67b3' },
+		{ height: isTablet ? 190 : 100, bgColour: '#22a6c0' },
+		{ height: isTablet ? 134 : 100, bgColour: '#8d8dff' },
+		{ height: isTablet ? 168 : 155, bgColour: '#89c0ff' },
+		{ height: isTablet ? 170 : 115, bgColour: '#22a6c0' },
 	]
 
 	const rectsRight = [
-		{ height: 165, bgColour: '#22a6c0' },
-		{ height: 170, bgColour: '#8d8dff' },
-		{ height: 155, bgColour: '#89c0ff' },
-		{ height: 165, bgColour: '#14eb9c' },
-		{ height: 165, bgColour: '#22a6c0' },
-		{ height: 170, bgColour: '#8d8dff' },
-		{ height: 155, bgColour: '#89c0ff' },
-		{ height: 165, bgColour: '#14eb9c' },
-		{ height: 165, bgColour: '#8d8dff' },
-		{ height: 170, bgColour: '#89c0ff' },
-		{ height: 155, bgColour: '#14eb9c' },
+		{ height: isTablet ? 240 : 165, bgColour: '#22a6c0' },
+		{ height: isTablet ? 200 : 170, bgColour: '#8d8dff' },
+		{ height: isTablet ? 220 : 155, bgColour: '#89c0ff' },
+		{ height: isTablet ? 230 : 165, bgColour: '#14eb9c' },
+		{ height: isTablet ? 195 : 165, bgColour: '#22a6c0' },
+		{ height: isTablet ? 235 : 170, bgColour: '#8d8dff' },
+		{ height: isTablet ? 190 : 155, bgColour: '#89c0ff' },
+		{ height: isTablet ? 210 : 165, bgColour: '#14eb9c' },
+		{ height: isTablet ? 230 : 165, bgColour: '#8d8dff' },
+		{ height: isTablet ? 200 : 170, bgColour: '#89c0ff' },
+		{ height: isTablet ? 220 : 155, bgColour: '#14eb9c' },
 	]
 
 
@@ -247,7 +249,7 @@ const ExampleMarketPageC = () => {
 						>
 						</div>
 						<div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-							<p className={`${classes.text} ${active ? classes.text_hovered : ''}`}>{tg ? 'You Just Lost The Game' : 'Artwork Name'}</p>
+							<p className={`${classes.text} ${active ? classes.text_hovered : ''}`}>{tg ? 'This isn\'t an easter egg... but you\'re close to one! ' : 'Artwork Name'}</p>
 							<p className={`${classes.text} ${active ? classes.text_hovered : ''}`}>{tg ? '' : '0.3ETH'}</p>
 						</div>
 					</>
@@ -311,9 +313,27 @@ const ExampleMarketPageC = () => {
 							justifyContent: 'space-around'
 						}}
 					>
-						<div className={classes.square} />
-						<div className={classes.square} />
-						<div className={classes.square} />
+						<div
+							className={classes.square}
+							style={{
+								backgroundColor: lightMode ? 'black' : 'white',
+								transition: 'background-color .4s ease-in'
+							}}
+						/>
+						<div
+							className={classes.square}
+							style={{
+								backgroundColor: lightMode ? 'black' : 'white',
+								transition: 'background-color .4s ease-in'
+							}}
+						/>
+						<div
+							className={classes.square}
+							style={{
+								backgroundColor: lightMode ? 'black' : 'white',
+								transition: 'background-color .4s ease-in'
+							}}
+						/>
 					</div>
 
 				</div>

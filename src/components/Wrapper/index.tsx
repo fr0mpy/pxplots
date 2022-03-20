@@ -41,7 +41,6 @@ const Wrapper = () => {
 	}, [])
 
 	const onResize = () => {
-		console.log('resize')
 		throttle(forceUpdate, 500)
 	}
 

@@ -28,7 +28,7 @@ const About = () => {
 				This, is a pxplot.
 			</p>
 			<PxplotCube />
-			<p className={classes.text} style={{ marginBottom: '36px' }}>
+			<p className={classes.text} style={{ marginBottom: '24px' }}>
 				...Yep, that's it.
 			</p>
 			<p className={classes.text}>

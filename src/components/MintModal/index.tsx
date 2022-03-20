@@ -38,6 +38,11 @@ const useStyles = createUseStyles({
 		top: '50%',
 		transform: 'translate(-50%, -50%)',
 		textAlign: 'center',
+		transition: 'all .4s ease-in',
+
+		'@media screen and (max-width: 1024px)': {
+			width: '80%'
+		},
 
 
 		'@media screen and (max-width: 600px)': {
@@ -54,28 +59,31 @@ const useStyles = createUseStyles({
 	},
 	modal_container_night: {
 		backgroundColor: 'black',
-		color: 'white'
+		color: 'white',
+		transition: 'all .4s ease-in'
+
 	},
 	button: {
-		backgroundColor: '#5141f1',
+		// backgroundColor: '#5141f1',
+		backgroundColor: '#3effdb',
 		border: 'solid 4px black',
 		borderRadius: '5px',
-		color: 'white',
+		color: 'black',
+		// color: 'white',
 		cursor: 'pointer',
 		fontFamily: 'Roboto Slab, serif',
-		fontSize: '18px',
-		minHeight: '48px',
+		fontSize: '32px',
+		minHeight: '82px',
 		outline: 'solid 4px white',
 		transition: 'border .4s linear, outline .4s linear, background-color .2s linear',
-		width: '220px',
+		width: '262px',
 		padding: '8px',
-		// justifySelf: 'flex-end',
-		margin: '65px auto 0 auto',
-		'&:hover': {
-			backgroundColor: '#3effdb',
-			color: 'black',
-			transition: 'background-color .2s linear',
-		},
+		margin: '42px auto 0 auto',
+		// '&:hover': {
+		// 	backgroundColor: '#3effdb',
+		// 	color: 'black',
+		// 	transition: 'background-color .2s linear',
+		// },
 		'&:active': {
 			backgroundColor: '#fffd00',
 			boxShadow: 'inset 0 0 16px #000000',
@@ -101,6 +109,8 @@ const useStyles = createUseStyles({
 		fontWeight: 900,
 		cursor: 'pointer !important',
 		textDecoration: 'none',
+		width: '100%',
+		fontSize: '32px',
 		'&:hover': {
 			color: '#3effdb',
 			opacity: .75
@@ -131,15 +141,17 @@ const MintModal = () => {
 					However,
 				</p>
 				<p style={{ fontSize: '20px', margin: '12px 0' }}>
-					You have also just lost <a href={'https://knowyourmeme.com/memes/the-game'} target={'blank'} className={`${classes.link} ${lightMode ? classes.link_night : ''}`}> The Game</a>.
+					You have also just lost
 				</p>
 				{/* </div> */}
-				{/* <button className={classes.button}>
-					Minting Will Begin End Of June
-				</button> */}
+				<a href={'https://knowyourmeme.com/memes/the-game'} target={'blank'}>
+					<button className={classes.button}>
+						The Game
+					</button>
+				</a>
 
 			</div>
-		</div>
+		</div >
 	)
 }
 

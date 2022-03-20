@@ -14,6 +14,7 @@ import Navigation from '../Navigation';
 import Header from '../Header';
 import SocialLinks from '../SocialLinks';
 import MintModal from '../MintModal';
+import FlickityComponent from '../FlickityComponent';
 
 const useStyles = createUseStyles({
 	container: {
@@ -113,7 +114,7 @@ const useStyles = createUseStyles({
 				width: '58px',
 				borderRadius: '6px',
 				backgroundColor: '#5141f1',
-				border: 'solid 5px black',
+				border: 'solid 5px white',
 				transition: 'all .4s ease-in-out'
 			},
 			'& .flickity-button-icon': {
@@ -178,12 +179,16 @@ const useStyles = createUseStyles({
 
 		'@media screen and (max-width: 600px)': {
 			'& .flickity-prev-next-button': {
-				top: '87.5%'
+				height: '52px',
+				width: '52px',
+				top: '87%'
 			},
 		},
 		'@media screen and (max-width: 380px)': {
 			'& .flickity-prev-next-button': {
-				top: '86%'
+				top: '84%',
+				height: '42px',
+				width: '42px',
 			},
 		}
 	},
@@ -201,7 +206,7 @@ const useStyles = createUseStyles({
 		width: '100%',
 
 		'@media screen and (max-width: 600px)': {
-			height: '55px'
+			height: '64px'
 		},
 	},
 	footer_night: {
@@ -216,24 +221,13 @@ interface IProps {
 	modalOpen: boolean;
 }
 
+
 const ExampleMarketPages = ({ modalOpen }: IProps) => {
 	const classes = useStyles();
 	const { theme = {} } = useSelector((state: IThemeState): IThemeState => state.theme)
 	const lightMode = theme === Theme.Light;
 	const isDesktop = deviceTypeIs(DeviceType.Desktop);
-	const flickityRef = React.useRef<HTMLDivElement | null>(null);
 
-	const flickityOptions = {
-		contain: true,
-		initialIndex: 0,
-		draggable: false,
-		freeScroll: true,
-		wrapAround: true,
-		groupCells: true,
-		pageDots: false,
-		fullScreen: false
-
-	}
 
 	if (isDesktop) {
 		return (
@@ -266,14 +260,7 @@ const ExampleMarketPages = ({ modalOpen }: IProps) => {
 			<Header />
 			{modalOpen
 				? <MintModal />
-				: <Flickity
-					className={`carousel ${lightMode ? classes.flickity_slider : classes.flickity_slider_night}`}
-					elementType={'div'}
-					options={flickityOptions}
-					disableImagesLoaded={false}
-					reloadOnUpdate
-					flickityRef={flickityRef as any}
-				>
+				: <FlickityComponent className={`carousel ${lightMode ? classes.flickity_slider : classes.flickity_slider_night}`}>
 					<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
 						<Navigation />
 					</div>
@@ -289,7 +276,8 @@ const ExampleMarketPages = ({ modalOpen }: IProps) => {
 					<div style={{ marginRight: '16px', height: '100%', display: 'flex', justifyContent: 'center', width: '100%' }}>
 						<ExampleMarketPageD />
 					</div>
-				</Flickity>}
+				</FlickityComponent>
+			}
 			{
 				!isDesktop
 					? <div className={`${classes.footer} ${lightMode ? '' : classes.footer_night}`} >

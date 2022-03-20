@@ -31,7 +31,7 @@ const useStyles = createUseStyles({
 		width: '550px',
 		zIndex: 1,
 
-		'@media screen and (max-width: 1200px)': {
+		'@media screen and (max-width: 1024px)': {
 			border: 'solid 5px #5141f1',
 			borderRadius: '8px',
 			height: '72%',
@@ -52,16 +52,21 @@ const useStyles = createUseStyles({
 			height: '62.5%'
 		}
 	},
+	root_width: {
+		'@media screen and (min-width: 1024px) and (max-width: 1240px)': {
+			width: '400px'
+		}
+	},
 	root_night_mode: {
 		backgroundColor: 'black',
 		color: 'white',
 		transition: 'background-color .4s linear',
-
 	},
 	text: {
 		color: 'black',
 		textAlign: 'center',
 		transition: 'background-color .4s linear',
+		margin: '24px 0'
 	},
 	unconnected_text: {
 		opacity: 0,
@@ -150,18 +155,12 @@ const useStyles = createUseStyles({
 
 	},
 	section: {
-		// height: '55vh',
-		// overflow: 'auto',
 		textAlign: 'center',
 		padding: '0 16px',
 		boxSizing: 'border-box',
-
-		'@media screen and (max-width: 1200px)': {
-			display: 'flex',
-			flexFlow: 'column',
-			// height: '62.5vh',
-			justifyContent: 'center',
-		}
+		display: 'flex',
+		flexFlow: 'column',
+		justifyContent: 'center',
 	},
 	section_night_mode: {
 		'&::-webkit-scrollbar-thumb': {
@@ -183,6 +182,19 @@ const useStyles = createUseStyles({
 		borderBottom: 'dotted 5px white',
 		transition: 'border-bottom .4s linear',
 	},
+	seed: {
+		margin: '4px 0',
+		textAlign: 'center',
+		fontSize: '28px',
+
+		'@media screen and (max-width: 600px)': {
+			fontSize: '24px'
+		},
+
+		'@media screen and (max-width: 380px)': {
+			display: 'none'
+		}
+	}
 });
 
 enum Sections {
@@ -205,7 +217,6 @@ const Navigation = () => {
 
 	React.useEffect(() => {
 		if (sectionRef.current) {
-			console.log('ref', sectionRef.current.scrollTop)
 			sectionRef.current.scrollTop = 0;
 		}
 	}, [section])
@@ -239,21 +250,15 @@ const Navigation = () => {
 		})
 	}
 
-
-	const welcome = () => {
-		const isMobile = deviceTypeIs(DeviceType.Mobile);
-		if (isMobile) {
-			return 'Welcome To pxplots! 🏝️'
-		} else {
-			return '🏝️ Welcome To pxplots! 🏝️'
-		}
-	}
 	return (
-		<div className={`${classes.root} ${lightMode ? '' : classes.root_night_mode}`}>
+		<div className={`${classes.root} ${lightMode ? '' : classes.root_night_mode} ${isDesktop ? classes.root_width : ''}`}>
 			{isDesktop ? <Header /> : null}
 			<div>
 				<p className={`${classes.text} ${classes.nav_title} ${lightMode ? '' : classes.night_mode_text}`}>
-					{welcome()}
+					Welcome To pxplots!
+				</p>
+				<p className={classes.seed} >
+					🌱
 				</p>
 				<p className={`${classes.text} ${classes.nav_caption} ${lightMode ? '' : classes.night_mode_text}`}>
 					10,000 sm0l plots, living on the Ethereum blockchain 🧱⛓️

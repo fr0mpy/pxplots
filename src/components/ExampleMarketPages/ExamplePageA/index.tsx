@@ -74,6 +74,7 @@ const useStyles = createUseStyles({
 		width: '100%',
 	},
 	first_blocks: {
+		borderRadius: '4px',
 		height: '200px',
 		flexGrow: '1',
 		backgroundColor: '#89c0ff',
@@ -93,11 +94,11 @@ const useStyles = createUseStyles({
 		color: 'inherit',
 		height: '100%',
 		textAlign: 'center',
-		fontSize: '12px',
+		fontSize: '14px',
 		margin: '32px 16px'
 	},
 	small_text: {
-		fontSize: '10px',
+		fontSize: '12px',
 		color: 'inherit',
 		margin: '8px 20px',
 	},
@@ -141,20 +142,30 @@ const useStyles = createUseStyles({
 		},
 	},
 	cube: {
+		borderRadius: '4px',
 		backgroundColor: '#8dc2ff',
 		cursor: 'pointer',
 		height: '80px',
 		margin: 0,
 		transition: 'opacity .2s ease-in-out',
 		width: '80px',
+		flex: 1,
 
 		'&:hover': {
 			transition: 'opacity .2s ease-in-out',
 			opacity: .6
 		},
-		'@media screen and (max-width: 1024px)': {
+		'@media screen and (max-width: 1275px)': {
 			height: '120px',
 			width: '120px'
+		},
+		'@media screen and (min-width: 1020px) and (max-width: 1269px)': {
+			height: '68px',
+			width: '68px'
+		},
+		'@media screen and (min-width: 1020px) and (max-width: 1150px)': {
+			height: '54px',
+			width: '54px'
 		},
 		'@media screen and (max-width: 600px)': {
 			height: '84px',
@@ -168,9 +179,11 @@ const useStyles = createUseStyles({
 		marginBottom: '12px',
 		height: '116px',
 
+
 		'@media screen and (max-width: 1024px)': {
 			minHeight: '181px'
 		},
+
 
 		'@media screen and (max-width: 600px)': {
 			minHeight: '100px',
@@ -178,7 +191,7 @@ const useStyles = createUseStyles({
 		},
 	},
 	last_cubes: {
-		// height: '160px',
+		borderRadius: '4px',
 		flex: 1,
 		backgroundColor: '#ffeea7',
 		margin: '6px',
@@ -187,20 +200,29 @@ const useStyles = createUseStyles({
 	},
 	textHoverText: {
 		color: 'inherit',
-		fontSize: '10px',
+		fontSize: '12px',
 		margin: '12px',
+		maxWidth: '60px',
+
 		opacity: 0,
 		position: 'relative',
 		top: '32px',
 		transition: 'all .6s ease-in-out',
+
+		'@media screen and (min-width: 1020px) and (max-width: 1150px)': {
+			margin: '6px',
+			maxWidth: '60px',
+			height: '70px'
+		},
 
 		'@media screen and (max-width: 600px)': {
 			margin: '2px'
 		},
 	},
 	textHoverText_hover: {
-		fontSize: '10px',
+		fontSize: '12px',
 		margin: '12px',
+		maxWidth: '60px',
 		opacity: 1,
 		position: 'relative',
 		top: '0',
@@ -241,7 +263,7 @@ const ExampleMarketPageA = () => {
 							className={classes.small_text}
 							style={{ textAlign: 'center' }}
 						>
-							You can write small bits of info about your images
+							A small bit of info about the NFT
 						</p>
 						<p
 							className={classes.small_text}
@@ -278,7 +300,7 @@ const ExampleMarketPageA = () => {
 							className={classes.small_text}
 							style={style}
 						>
-							Small sample of info text about the image
+							Small sample of info text about the NFT
 						</p>
 						<p
 							className={classes.small_text}
@@ -299,7 +321,7 @@ const ExampleMarketPageA = () => {
 			</p>
 
 			<p className={classes.text} style={{ margin: '4px 0 12px' }}>
-				Showcase your art. Set prices for it. Sell & Mint it.
+				Showcase your art. Set image sizes. Set prices. Link & Mint it.
 			</p>
 			<div className={classes.last_cubes_container}>
 				<div
@@ -329,7 +351,7 @@ const ExampleMarketPageA = () => {
 					onMouseLeave={() => setActiveBox(0)}
 				>
 					<p className={` ${activeBox === 3 ? classes.textHoverText_hover : classes.textHoverText}`}>
-						Or link your images to your listings on other marketplaces.
+						Link your images to other marketplaces.
 					</p>
 				</div>
 			</div>

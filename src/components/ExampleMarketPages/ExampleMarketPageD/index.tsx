@@ -1,9 +1,4 @@
-import * as React from 'react';
 import { createUseStyles } from 'react-jss';
-import { useSelector } from 'react-redux';
-import { XAxis } from '../../../enums';
-import { Theme } from '../../../enums/themes';
-import { IThemeState } from '../../../Redux/slices/themeSlice';
 
 const useStyles = createUseStyles({
 
@@ -45,17 +40,21 @@ const useStyles = createUseStyles({
 			height: '62.5%'
 		}
 	},
-	section: {
-		// height: '100%'
+	text: {
+		fontSize: '16px',
+		lineHeight: 'normal',
+		width: '80%',
+		textAlign: 'center',
+
+		'@media screen and (max-width: 1024px)': {
+			fontSize: '26px'
+		},
+		'@media screen and (max-width: 600px)': {
+			fontSize: '20px'
+		},
 	}
 })
 
-interface IHoveredRect {
-	index: number,
-	xAxis: xAxis
-}
-
-type xAxis = XAxis.Left | XAxis.Right;
 const ExampleMarketPageC = () => {
 	const classes = useStyles();
 
@@ -68,12 +67,12 @@ const ExampleMarketPageC = () => {
 				scrollSnapAlign: 'start',
 				display: 'flex',
 				justifyContent: 'center',
-				backgroundColor: '#dfbf49',
+				backgroundColor: '#49dfdf',
 				alignItems: 'center'
 			}}
 			>
-				<p style={{ textAlign: 'center' }}>
-					Or, just have full page images
+				<p className={classes.text}>
+					Or, just have full page images to scroll through...
 				</p>
 			</div>
 			<div style={{
@@ -83,11 +82,11 @@ const ExampleMarketPageC = () => {
 				scrollSnapAlign: 'start',
 				display: 'flex',
 				justifyContent: 'center',
-				backgroundColor: '#49dfdf',
+				backgroundColor: '#dfbf49',
 				alignItems: 'center'
 			}}
 			>
-				<p style={{ textAlign: 'center' }}>
+				<p className={classes.text}>
 					Hope you've enjoyed these examples
 				</p>
 			</div>
@@ -102,22 +101,31 @@ const ExampleMarketPageC = () => {
 				alignItems: 'center'
 			}}
 			>
-				<p style={{ textAlign: 'center' }}>
+				<p className={classes.text}>
 					Any questions, drop a us Tweet!
 				</p>
 			</div>
-			<div style={{
-				height: '100%',
-				width: '100%',
-				minHeight: '100%',
-				scrollSnapAlign: 'start',
-				display: 'flex',
-				justifyContent: 'center',
-				backgroundColor: '#df5e49',
-				alignItems: 'center'
-			}}
+			<div
+				style={{
+					height: '100%',
+					width: '100%',
+					minHeight: '100%',
+					scrollSnapAlign: 'start',
+					display: 'flex',
+					justifyContent: 'center',
+					backgroundColor: '#df5e49',
+					alignItems: 'center'
+				}}
 			>
-
+				<p
+					style={{
+						color: '#df5e49',
+						textAlign: 'center',
+						width: '100%',
+					}}
+				>
+					69
+				</p>
 			</div>
 		</div>
 	);

@@ -109,10 +109,8 @@ const ThemeToggle = () => {
 
 	const setIconThemeClass = () => {
 		if (theme === Theme.Light) {
-			console.log('l')
 			return classes.icon
 		} else if (theme === Theme.Dark) {
-			console.log('d')
 
 			return classes.icon_night
 		}

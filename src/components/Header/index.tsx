@@ -19,6 +19,7 @@ const useStyles = createUseStyles({
 		'@media screen and (max-width: 1024px)': {
 			boxShadow: 'rgb(0 0 0) 8px 12px 34px 0px',
 			lineHeight: 'normal',
+			padding: '10px 16px 6px',
 			position: 'absolute',
 			width: '100%',
 
@@ -34,14 +35,10 @@ const useStyles = createUseStyles({
 		display: 'flex',
 		flexFlow: 'row',
 		height: 'fit-content',
-		// marginBottom: '16px',
 		justifyContent: 'space-between',
 
-		'@media screen and (max-width: 1024px)': {
-			// marginBottom: '30px'
-		},
 		'@media screen and (max-width: 600px)': {
-			marginBottom: '0px'
+			margin: '4px 0 0'
 		}
 	},
 	button: {
@@ -55,30 +52,38 @@ const useStyles = createUseStyles({
 		minHeight: '48px',
 		outline: 'solid 4px white',
 		transition: 'border .4s linear, outline .4s linear, background-color .2s linear',
-		width: '180px',
+		width: '160px',
+
 		'&:hover': {
 			backgroundColor: '#3effdb',
 			color: 'black',
 			transition: 'background-color .2s linear',
 		},
+
 		'&:active': {
 			backgroundColor: '#fffd00',
 			boxShadow: 'inset 0 0 16px #000000',
 			transition: 'background-color .2s linear, box-shadow .05s linear',
+		},
+
+		'@media screen (min-width: 1240px)': {
+			width: '180px'
 		}
 	},
 	mint_button: {
-		border: 'solid 4px black',
 		backgroundColor: '#3effdb',
+		border: 'solid 4px white',
 		color: 'black',
+		marginBottom: '4px',
+		outline: 'solid 4px black',
 		'&:hover': {
 			color: 'white',
 			backgroundColor: '#d362d2',
 		}
 	},
 	button_night_mode: {
-		border: 'solid 4px white',
-		outline: 'solid 4px black',
+		border: 'solid 4px black',
+		outline: 'solid 4px white',
 		transition: 'border .4s linear, outline .4s linear',
 	},
 	unconnected_text: {
@@ -138,7 +143,7 @@ const Header = () => {
 					setUserWalletAddress(account);
 				});
 		} else {
-			alert('No Web3 Wallet Extension Detected');
+			alert('No Web3 Wallet Extension Detected. Please install MetaMask');
 		}
 	};
 
