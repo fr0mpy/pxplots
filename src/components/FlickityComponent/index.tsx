@@ -13,7 +13,7 @@ export default class FlickityComponent extends React.PureComponent<IProps> {
 		const flickityOptions = {
 			contain: true,
 			initialIndex: 0,
-			draggable: true,
+			draggable: false,
 			freeScroll: true,
 			wrapAround: true,
 			groupCells: true,
