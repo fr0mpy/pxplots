@@ -54,7 +54,7 @@ const Team = () => {
 			</p>
 			<p className={classes.text}>
 				It's such a powerful concept and the inspiration behind pxplots -
-				To support artists in this new digital landscape.
+				To give artists the tools they need to build a digital gallery.
 			</p>
 			<p className={classes.text}>
 				Like so many of you, I'm ridiculously excited for what the future holds for web3 and I truly hope pxplots can become an integral part of it.
