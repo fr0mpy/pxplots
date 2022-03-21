@@ -64,10 +64,10 @@ const useStyles = createUseStyles({
 			transition: 'background-color .2s linear, box-shadow .05s linear',
 		},
 
-		'@media screen (min-width: 1240px)': {
+		'@media screen and (min-width: 1024px)': {
 			fontSize: '18px',
-			minHeight: '48px',
-			width: '180px'
+			minHeight: '52px',
+			width: '160px'
 		}
 	},
 	mint_button: {
@@ -86,9 +86,11 @@ const useStyles = createUseStyles({
 		fontSize: '16px',
 		transition: 'border .4s linear, outline .4s linear',
 
-		'@media screen (min-width: 1240px)': {
+		'@media screen and (min-width: 1024px)': {
 			fontSize: '18px',
-			width: '180px'
+			width: '160px',
+			height: '52px'
+
 		}
 	},
 	unconnected_text: {

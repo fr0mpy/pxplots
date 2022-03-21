@@ -113,6 +113,10 @@ const useStyles = createUseStyles({
 			borderBottom: 'solid 3px #5141f1'
 		},
 
+		'@media screen and (min-width: 1025px)': {
+			padding: '0 8px',
+		},
+
 		'@media screen and (max-width: 380px)': {
 			fontSize: '18px'
 		}
